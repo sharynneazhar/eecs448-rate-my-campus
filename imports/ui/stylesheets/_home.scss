@@ -1,0 +1,51 @@
+.find-section {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.find-section-title {
+  margin-bottom: 35px;
+  font-size: 52px;
+}
+
+.searchbar {
+  width: 490px;
+  border: 1px solid $charcoal;
+  border-radius: 18px;
+  margin-bottom: 35px;
+  padding: 12px;
+  font-family: $open-sans;
+  font-size: 34px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.searchbar:focus {
+  outline: none;
+  color: $blue;
+  text-shadow: 0px 0px 0px $grey;
+  -webkit-text-fill-color: transparent;
+}
+
+.recent-rating-section:before {
+  width: 100px;
+  content: "";
+  position: absolute;
+  left: 0;
+  border-top:: 4px solid $lavender;
+  margin-top: -43px;
+}
+
+.recent-rating-section {
+  padding: 40px;
+  background-color: $lightGrey;
+}
+
+.recent-rating-title {
+  font-weight: 600;
+  font-size: 18px;
+  background-color: $lightGrey;
+}
