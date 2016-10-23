@@ -2,23 +2,23 @@
 // BASE STYLES
 // -----------------
 
-@import '{}/imports/ui/stylesheets/_colors.scss';
-@import '{}/imports/ui/stylesheets/_fonts.scss';
-@import '{}/imports/ui/stylesheets/_base.scss';
-@import '{}/imports/ui/stylesheets/_helpers.scss';
+@import './stylesheets/_colors.scss';
+@import './stylesheets/_fonts.scss';
+@import './stylesheets/_base.scss';
+@import './stylesheets/_helpers.scss';
 
 
 // -----------------
 // COMPONENT STYLES
 // -----------------
 
-@import '{}/imports/ui/stylesheets/_header.scss';
-@import '{}/imports/ui/stylesheets/_button.scss';
-@import '{}/imports/ui/stylesheets/_footer.scss';
+@import './stylesheets/_header.scss';
+@import './stylesheets/_button.scss';
+@import './stylesheets/_footer.scss';
 
 
 // -----------------
 // PAGES STYLES
 // -----------------
 
-@import '{}/imports/ui/stylesheets/_home.scss';
+@import './stylesheets/_home.scss';
