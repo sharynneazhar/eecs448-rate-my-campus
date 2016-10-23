@@ -45,6 +45,7 @@ interfaces. Many people choose to think of React as the V in MVC.
 developing modern web and mobile applications.
 - [React with Meteor Guide][2] - How to use React, Facebook's frontend
 rendering library, with Meteor.
+- [The Meteor Chef][13] - The Meteor Chef teaches you how to build software with Meteor, adding a dash of dev wisdom for taste.
 
 ###### ECMAScript 6 (ES6)
 - [Luke Hoban's "ES6 Features"][10]
@@ -73,3 +74,4 @@ This project is currently maintained by [Sharynne Azhar][5], [Erin Coots][6],
 [10]: https://github.com/lukehoban/es6features#readme
 [11]: https://github.com/getify/You-Dont-Know-JS/tree/master/es6%20%26%20beyond
 [12]: https://github.com/nzakas/understandinges6
+[13]: https://themeteorchef.com/
