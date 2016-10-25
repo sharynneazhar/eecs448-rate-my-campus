@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import { Tasks } from '../../../api/tasks.js';
 import ui from '../../components';
 
 class Home extends Component {
