@@ -55,6 +55,7 @@ rendering library, with Meteor.
 ##### Tutorial
 - [React with Meteor Tutorial][3] - Create a simple app to manage a 'to do'
 list and collaborate with others on those tasks.
+- [Beginner's Guide to MongoDB and Meteor][14] - How MongoDB works with Meteor
 
 
 ### The Team
@@ -75,3 +76,4 @@ This project is currently maintained by [Sharynne Azhar][5], [Erin Coots][6],
 [11]: https://github.com/getify/You-Dont-Know-JS/tree/master/es6%20%26%20beyond
 [12]: https://github.com/nzakas/understandinges6
 [13]: https://themeteorchef.com/
+[14]: http://meteortips.com/first-meteor-tutorial/databases-part-1/
