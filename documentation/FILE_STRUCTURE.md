@@ -1,6 +1,5 @@
 ## [Organizing Your Meteor Project](https://themeteorchef.com/snippets/organizing-your-meteor-project/)  
 
-
 `/client` - used to store all code that's meant to run on the client-side of our application. Any files located in this directory will be loaded on the client-side (browser) only.
 
 `/server` - used to store all code that's meant to run on the server-side of our application. Any files located in this directory will be loaded on the server-side only.
@@ -8,6 +7,8 @@
 `/public` - used to store all files that are meant to be served plublicly. Images, graphics, and other static assets can live here.
 
 `/private` - used to store private data files and can only be accessed on the server. For example, things like email templates or mock data can be stored here.
+
+
 
 ## [Understanding the Imports Directory](https://themeteorchef.com/snippets/understanding-the-imports-directory/)
 
