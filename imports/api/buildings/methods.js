@@ -1,13 +1,19 @@
 import { Buildings } from './buildings';
 
-export const insertBuidling = new ValidatedMethod({
-  name: 'buildings.insert',
+export const insertBuilding = new ValidatedMethod({
+  name: 'Buildings.methods.insert',
   validate: new SimpleSchema({
     name: { type: String },
     description: { type: String },
+    address: { type: Object },
+    "address.full": { type: String},
+    "address.street": { type: String},
+    "address.city": { type: String},
+    "address.state": { type: String},
+    "address.zip": { type: String},
   }).validator(),
-  run(document) {
-    Buildings.insert(document);
+  run(building) {
+    Buildings.insert(building);
   }
 });
 
