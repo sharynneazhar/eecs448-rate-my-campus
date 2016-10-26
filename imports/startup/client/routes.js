@@ -9,7 +9,7 @@ export const renderRoutes = () => (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="/home" component={Home}/>
+      <Route path="/home" component={Home} />
       {/* <Route path="signin" component={AuthPageSignIn}/>
       <Route path="join" component={AuthPageJoin}/>
       <Route path="*" component={NotFoundPage}/> */}

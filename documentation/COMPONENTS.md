@@ -2,6 +2,8 @@
 
 Components should be small, simple, repeatable UI elements.
 
+Note: Be sure to add any newly created components to the `index.js` file. 
+
 
 ### Header
 The app's header bar containing the logo and log in / sign up links.

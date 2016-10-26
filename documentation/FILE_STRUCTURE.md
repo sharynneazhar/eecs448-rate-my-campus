@@ -4,13 +4,15 @@
 
 `/server` - used to store all code that's meant to run on the server-side of our application. Any files located in this directory will be loaded on the server-side only.
 
-`/public` - used to store all files that are meant to be served plublicly. Images, graphics, and other static assets can live here.
+`/public` - used to store all files that are meant to be served publicly. Images, graphics, and other static assets can live here.
 
 `/private` - used to store private data files and can only be accessed on the server. For example, things like email templates or mock data can be stored here.
 
 
 
 ## [Understanding the Imports Directory](https://themeteorchef.com/snippets/understanding-the-imports-directory/)
+
+This is where the bulk of our work should be.
 
 `/imports` - any code within the project’s /imports directory is not loaded automatically like the code within the `/client` and `/server` directories. This means that anything placed in this directory must be loaded explicitly in the application.
 

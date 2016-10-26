@@ -1,4 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, {
+  Component,
+  PropTypes
+} from 'react';
 import ui from './components';
 
 // App component - represents the whole app
