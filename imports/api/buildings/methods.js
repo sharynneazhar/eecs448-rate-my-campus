@@ -1,70 +1,46 @@
 import { Buildings } from './buildings';
 
-export const insertBuilding = new ValidatedMethod({
+export const addBuilding = new ValidatedMethod({
   name: 'Buildings.methods.insert',
   validate: new SimpleSchema({
     name: { type: String },
     description: { type: String },
     address: { type: Object },
-    "address.full": { type: String},
-    "address.street": { type: String},
-    "address.city": { type: String},
-    "address.state": { type: String},
-    "address.zip": { type: String},
+    "address.full": { type: String },
+    "address.street": { type: String },
+    "address.city": { type: String },
+    "address.state": { type: String },
+    "address.zip": { type: String },
   }).validator(),
   run(building) {
     Buildings.insert(building);
   }
 });
 
+export const updateBuilding = new ValidatedMethod({
+  name: 'Buildings.methods.update',
+  validate: new SimpleSchema({
+    _id: { type: String },
+    "update.name": { type: String, optional: true },
+    "update.description": { type: String, optional: true },
+    "update.address": { type: Object, optional: true },
+    "update.address.full": { type: String, optional: true },
+    "update.address.street": { type: String, optional: true },
+    "update.address.city": { type: String, optional: true },
+    "update.address.state": { type: String, optional: true },
+    "update.address.zip": { type: String, optional: true },
+  }).validator(),
+  run({ _id, update }) {
+    Buildings.update(_id, { $set: update });
+  }
+});
 
-// OLD CODE - keep for reference
-// Meteor.methods({
-//   'tasks.insert'(text) {
-//     check(text, String);
-//
-//     // Make sure the user is logged in before inserting a task
-//     if (! this.userId) {
-//       throw new Meteor.Error('not-authorized');
-//     }
-//
-//     Tasks.insert({
-//       text,
-//       createdAt: new Date(),
-//       owner: this.userId,
-//       username: Meteor.users.findOne(this.userId).username,
-//     });
-//   },
-//   'tasks.remove'(taskId) {
-//     check(taskId, String);
-//     const task = Tasks.findOne(taskId);
-//     if (task.private && task.owner !== this.userId) {
-//       // If the task is private, make sure only the owner can delete it
-//       throw new Meteor.Error('not-authorized');
-//     }
-//     Tasks.remove(taskId);
-//   },
-//   'tasks.setChecked'(taskId, setChecked) {
-//     check(taskId, String);
-//     check(setChecked, Boolean);
-//     const task = Tasks.findOne(taskId);
-//     if (task.private && task.owner !== this.userId) {
-//       // If the task is private, make sure only the owner can check it off
-//       throw new Meteor.Error('not-authorized');
-//     }
-//     Tasks.update(taskId, { $set: { checked: setChecked } });
-//   },
-//   'tasks.setPrivate'(taskId, setToPrivate) {
-//     check(taskId, String);
-//     check(setToPrivate, Boolean);
-//
-//     const task = Tasks.findOne(taskId);
-//
-//     // Make sure only the task owner can make a task private
-//     if (task.owner !== this.userId) {
-//       throw new Meteor.Error('not-authorized');
-//     }
-//
-//     Tasks.update(taskId, { $set: { private: setToPrivate } });
-//   },
-// });
+export const removeBuilding = new ValidatedMethod({
+  name: 'Buildings.methods.remove',
+  validate: new SimpleSchema({
+    _id: { type: String }
+  }).validator(),
+  run({ _id }) {
+    Buildings.remove(_id);
+  }
+});

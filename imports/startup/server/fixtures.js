@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Buildings } from '../../api/buildings/buildings.js';
-import { insertBuilding } from '../../api/buildings/methods.js';
+import { addBuilding } from '../../api/buildings/methods.js';
 
 // if the database is empty on server start, create some sample data.
 Meteor.startup(() => {
@@ -31,7 +31,7 @@ Meteor.startup(() => {
     ];
 
     buildings.forEach((building) => {
-      insertBuilding.call(building, (error) => {
+      addBuilding.call(building, (error) => {
         if (error) {
           console.log("There was an error inserting mock building data");
         }
