@@ -7,7 +7,7 @@ RatingsSchema = new SimpleSchema({
 export const addReview = new ValidatedMethod({
   name: 'Reviews.methods.insert',
   validate: new SimpleSchema({
-    facility: { type: String }.
+    facility: { type: String },
     dateReviewed: { type: Date },
     ratings: { type: RatingsSchema },
     comments: { type: String }
