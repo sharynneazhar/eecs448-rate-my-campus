@@ -11,6 +11,7 @@ export default class Button extends Component {
   render() {
     return (
       <button
+        type={this.props.type}
         className={this.props.style}
         onClick={this.props.onClick}
       >
@@ -22,11 +23,18 @@ export default class Button extends Component {
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  type: PropTypes.string,
+  onClick: PropTypes.func,
   style: PropTypes.oneOf([
     'btn-default',
     'btn-default-invert',
+    'btn-lavender',
+    'btn-lavender-invert',
+    'btn-blue',
+    'btn-blue-invert',
     'btn-green',
     'btn-green-invert',
+    'btn-red',
+    'btn-red-invert',
   ])
 };

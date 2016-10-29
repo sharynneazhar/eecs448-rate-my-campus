@@ -27,6 +27,7 @@ class Home extends Component {
   }
 
   findBuilding(e) {
+    e.preventDefault();
     console.log(Buildings.find({
       name: {
         $regex: this.state.searchInput,
@@ -42,17 +43,18 @@ class Home extends Component {
           <div className="find-section-title">
             Find a building
           </div>
-          <input
-            className="searchbar"
-            type="text"
-            placeholder="building name"
-            onChange={this.handleInput}
-          />
-          <ui.Button
-            style="btn-default"
-            text="Search"
-            onClick={this.findBuilding}
-          />
+          <form className="searchForm" onSubmit={this.findBuilding}>
+            <ui.SearchInput
+              type="text"
+              placeholder="building name"
+              onChange={this.handleInput}
+            />
+            <ui.Button
+              style="btn-lavender"
+              type="submit"
+              text="Search"
+            />
+          </form>
         </div>
 
         <div className="recent-rating-section">
