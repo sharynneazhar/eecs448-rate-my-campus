@@ -1,19 +1,24 @@
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import { Reviews } from './reviews';
-
-RatingsSchema = new SimpleSchema({
-
-});
 
 export const addReview = new ValidatedMethod({
   name: 'Reviews.methods.insert',
   validate: new SimpleSchema({
+    type: {
+      type: String,
+      allowedValues: ['building','room','others']
+    },
     facility: { type: String },
     dateReviewed: { type: Date },
-    ratings: { type: RatingsSchema },
+    ratings: {
+      type: Object,
+      blackbox: true
+    },
     comments: { type: String }
   }).validator(),
   run(review) {
-    Reviews.insert(review);
+    console.log(review);
   }
 });
 
