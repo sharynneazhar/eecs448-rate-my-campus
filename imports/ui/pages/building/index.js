@@ -15,6 +15,7 @@ class Building extends Component {
     this.state = {
       loaded: false,
       building: {},
+      reviews: {},
     };
     Meteor.subscribe('buildings');
     Meteor.subscribe('reviews');
@@ -31,13 +32,13 @@ class Building extends Component {
   }
 
   getReviews() {
-    let reviews = Reviews.find({ facility: this.state.building._id }).fetch();
-    console.log(reviews);
+    return Reviews.findOne({ facility: this.state.building._id });
   }
 
   render() {
     // TODO: figure out how to load async data requests
     // NOTE: for now, click the button to load data.
+    let reviews = this.getReviews();
     return (
       <div>
         {this.state.loaded ? (
@@ -72,7 +73,7 @@ class Building extends Component {
                 <div className="rating-group">
                   <div className="single-rating">
                     <div className="rating-box">
-                      4.2
+                      {reviews.ratings.internet.toFixed(1)}
                     </div>
                     <div className="rating-name">
                       Internet
@@ -80,66 +81,65 @@ class Building extends Component {
                   </div>
                   <div className="single-rating">
                     <div className="rating-box">
-                      4.2
+                      {reviews.ratings.studyAreas.toFixed(1)}
                     </div>
                     <div className="rating-name">
-                      Internet
+                      Study Areas
                     </div>
                   </div>
                   <div className="single-rating">
                     <div className="rating-box">
-                      4.2
+                      {reviews.ratings.parking.toFixed(1)}
                     </div>
                     <div className="rating-name">
-                      Internet
+                      Parking
                     </div>
                   </div>
                   <div className="single-rating">
                     <div className="rating-box">
-                      4.2
+                      {reviews.ratings.dining.toFixed(1)}
                     </div>
                     <div className="rating-name">
-                      Internet
+                      Dining
                     </div>
                   </div>
                 </div>
                 <div className="rating-group">
                   <div className="single-rating">
                     <div className="rating-box">
-                      4.2
+                      {reviews.ratings.restrooms.toFixed(1)}
                     </div>
                     <div className="rating-name">
-                      Internet
+                      Restrooms
                     </div>
                   </div>
                   <div className="single-rating">
                     <div className="rating-box">
-                      4.2
+                      {reviews.ratings.trashMaintenance.toFixed(1)}
                     </div>
                     <div className="rating-name">
-                      Internet
+                      Trash Maintenance
                     </div>
                   </div>
                   <div className="single-rating">
                     <div className="rating-box">
-                      4.2
+                      {reviews.ratings.vendingMachines.toFixed(1)}
                     </div>
                     <div className="rating-name">
-                      Internet
+                      Vending Machines
                     </div>
                   </div>
                   <div className="single-rating">
                     <div className="rating-box">
-                      4.2
+                      {reviews.ratings.accessibility.toFixed(1)}
                     </div>
                     <div className="rating-name">
-                      Internet
+                      Accessibility
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            {this.getReviews()}
           </div>
         ) : <div></div>}
 
