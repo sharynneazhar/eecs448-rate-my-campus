@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Buildings } from '../../api/buildings/buildings.js';
+import { Reviews } from '../../api/reviews/reviews.js';
 import { addBuilding } from '../../api/buildings/methods.js';
+import { addReview } from '../../api/reviews/methods.js';
 
 // if the database is empty on server start, create some sample data.
 Meteor.startup(() => {
@@ -34,6 +36,51 @@ Meteor.startup(() => {
       addBuilding.call(building, (error) => {
         if (error) {
           console.log("There was an error inserting mock building data");
+        }
+      });
+    });
+  }
+
+  if (Reviews.find().count() === 0) {
+    const reviews = [
+      {
+        type: 'building',
+        facility: '8XDYMhmzANPmosubR',
+        dateReviewed: new Date(),
+        ratings: {
+          internet: 4.2,
+          studyAreas: 4.0,
+          parking: 2.1,
+          dining: 1.3,
+          restrooms: 3.8,
+          trashMaintenance: 2.8,
+          vendingMachines: 2.5,
+          accessibility: 3.0
+        },
+        comments: 'LEEP2 is a pretty awesome building. It is the most recent building and it is packed! with tech. However, the tech do fail sometimes and class time is wasted because of it.'
+      },
+      {
+        type: 'building',
+        facility: '8XDYMhmzANPmosubR',
+        dateReviewed: new Date(),
+        ratings: {
+          internet: 4.8,
+          studyAreas: 4.0,
+          parking: 2.5,
+          dining: 2.2,
+          restrooms: 4.6,
+          trashMaintenance: 3.2,
+          vendingMachines: 2.5,
+          accessibility: 3.0
+        },
+        comments: 'We need a better cafe in here with foooooood.'
+      },
+    ];
+
+    reviews.forEach((review) => {
+      addReview.call(review, (error) => {
+        if (error) {
+          console.log("There was an error inserting mock review data");
         }
       });
     });

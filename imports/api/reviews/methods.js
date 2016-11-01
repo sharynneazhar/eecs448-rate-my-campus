@@ -18,7 +18,7 @@ export const addReview = new ValidatedMethod({
     comments: { type: String }
   }).validator(),
   run(review) {
-    console.log(review);
+    Reviews.insert(review);
   }
 });
 

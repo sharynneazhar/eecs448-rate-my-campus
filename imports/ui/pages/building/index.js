@@ -7,6 +7,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import ui from '../../components';
 import { Buildings } from '../../../api/buildings/buildings.js';
+import { Reviews } from '../../../api/reviews/reviews.js';
 
 class Building extends Component {
   constructor(props) {
@@ -16,7 +17,9 @@ class Building extends Component {
       building: {},
     };
     Meteor.subscribe('buildings');
+    Meteor.subscribe('reviews');
     this.findBuilding = this.findBuilding.bind(this);
+    this.getReviews = this.getReviews.bind(this);
   }
 
   findBuilding() {
@@ -25,6 +28,11 @@ class Building extends Component {
       loaded: true,
       building: building,
     });
+  }
+
+  getReviews() {
+    let reviews = Reviews.find({ facility: this.state.building._id }).fetch();
+    console.log(reviews);
   }
 
   render() {
@@ -52,7 +60,86 @@ class Building extends Component {
               <a className="btn-default-invert building-map-btn"
                 href={"https://maps.google.com?q=" + this.state.building.address.full}
                 target="_blank">MAP</a>
-          </div>
+            </div>
+            <div className="building-rating">
+              <div className="building-overall-quality">
+                OVERALL QUALITY
+                <div className="building-overall-quality-value">
+                  4.2
+                </div>
+              </div>
+              <div className="building-average-ratings">
+                <div className="rating-group">
+                  <div className="single-rating">
+                    <div className="rating-box">
+                      4.2
+                    </div>
+                    <div className="rating-name">
+                      Internet
+                    </div>
+                  </div>
+                  <div className="single-rating">
+                    <div className="rating-box">
+                      4.2
+                    </div>
+                    <div className="rating-name">
+                      Internet
+                    </div>
+                  </div>
+                  <div className="single-rating">
+                    <div className="rating-box">
+                      4.2
+                    </div>
+                    <div className="rating-name">
+                      Internet
+                    </div>
+                  </div>
+                  <div className="single-rating">
+                    <div className="rating-box">
+                      4.2
+                    </div>
+                    <div className="rating-name">
+                      Internet
+                    </div>
+                  </div>
+                </div>
+                <div className="rating-group">
+                  <div className="single-rating">
+                    <div className="rating-box">
+                      4.2
+                    </div>
+                    <div className="rating-name">
+                      Internet
+                    </div>
+                  </div>
+                  <div className="single-rating">
+                    <div className="rating-box">
+                      4.2
+                    </div>
+                    <div className="rating-name">
+                      Internet
+                    </div>
+                  </div>
+                  <div className="single-rating">
+                    <div className="rating-box">
+                      4.2
+                    </div>
+                    <div className="rating-name">
+                      Internet
+                    </div>
+                  </div>
+                  <div className="single-rating">
+                    <div className="rating-box">
+                      4.2
+                    </div>
+                    <div className="rating-name">
+                      Internet
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {this.getReviews()}
           </div>
         ) : <div></div>}
 
