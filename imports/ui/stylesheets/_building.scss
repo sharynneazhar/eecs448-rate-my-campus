@@ -4,7 +4,7 @@
   position: absolute;
   background: url('/../../../illustrations/map.png') center center;
   background-size: cover;
-  opacity: 0.2;
+  opacity: 0.15;
 }
 
 .building-details {
@@ -38,25 +38,21 @@
 }
 
 .building-rating {
-  height: 200px;
-  padding: 50px;
+  height: 180px;
+  width: 65%;
+  margin: 0 auto;
+  padding: 40px 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
   text-align: center;
   font-family: $montserrat;
-}
-
-.building-rating:after {
-  content: "";
-  width: 90%;
-  position: absolute;
-  padding-bottom: 250px;
   border-bottom: 1px solid $border;
 }
 
 .building-overall-quality {
+  margin-left: 30px;
   font-size: 22px;
   font-weight: $bold;
 
@@ -65,39 +61,8 @@
   }
 }
 
-.building-average-ratings {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-  .rating-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+@media screen and (max-width: 1124px) {
+  .building-rating {
+    width: 85%;
   }
-
-  .single-rating {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 15px 50px;
-    font-weight: $bold;
-
-    .rating-box {
-      margin-right: 25px;
-      color: $green;
-    }
-
-  }
-}
-
-.building-average-ratings:before {
-  content: "";
-  height: 200px;
-  position: absolute;
-  margin-left: -40px;
-  border-left: 1px solid $border;
 }

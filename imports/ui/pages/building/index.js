@@ -26,7 +26,6 @@ class Building extends Component {
   findBuilding() {
     // TODO: change this back to id once we deploy
     let building = Buildings.findOne({ name: 'Learned Engineering Expansion Phase 2 (LEEP2)', });
-    console.log(building);
     this.setState({
       loaded: true,
       building: building,
@@ -72,76 +71,9 @@ class Building extends Component {
                   4.2
                 </div>
               </div>
-              <div className="building-average-ratings">
-                <div className="rating-group">
-                  <div className="single-rating">
-                    <div className="rating-box">
-                      {reviews.ratings.internet.toFixed(1)}
-                    </div>
-                    <div className="rating-name">
-                      Internet
-                    </div>
-                  </div>
-                  <div className="single-rating">
-                    <div className="rating-box">
-                      {reviews.ratings.studyAreas.toFixed(1)}
-                    </div>
-                    <div className="rating-name">
-                      Study Areas
-                    </div>
-                  </div>
-                  <div className="single-rating">
-                    <div className="rating-box">
-                      {reviews.ratings.parking.toFixed(1)}
-                    </div>
-                    <div className="rating-name">
-                      Parking
-                    </div>
-                  </div>
-                  <div className="single-rating">
-                    <div className="rating-box">
-                      {reviews.ratings.dining.toFixed(1)}
-                    </div>
-                    <div className="rating-name">
-                      Dining
-                    </div>
-                  </div>
-                </div>
-                <div className="rating-group">
-                  <div className="single-rating">
-                    <div className="rating-box">
-                      {reviews.ratings.restrooms.toFixed(1)}
-                    </div>
-                    <div className="rating-name">
-                      Restrooms
-                    </div>
-                  </div>
-                  <div className="single-rating">
-                    <div className="rating-box">
-                      {reviews.ratings.trashMaintenance.toFixed(1)}
-                    </div>
-                    <div className="rating-name">
-                      Trash Maintenance
-                    </div>
-                  </div>
-                  <div className="single-rating">
-                    <div className="rating-box">
-                      {reviews.ratings.vendingMachines.toFixed(1)}
-                    </div>
-                    <div className="rating-name">
-                      Vending Machines
-                    </div>
-                  </div>
-                  <div className="single-rating">
-                    <div className="rating-box">
-                      {reviews.ratings.accessibility.toFixed(1)}
-                    </div>
-                    <div className="rating-name">
-                      Accessibility
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ui.Ratings
+                parameters={reviews.ratings}
+              />
             </div>
           </div>
         ) : <div></div>}
