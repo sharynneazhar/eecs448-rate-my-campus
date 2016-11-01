@@ -24,7 +24,9 @@ class Building extends Component {
   }
 
   findBuilding() {
-    let building = Buildings.findOne({ _id: this.props.params.buildingId, });
+    // TODO: change this back to id once we deploy
+    let building = Buildings.findOne({ name: 'Learned Engineering Expansion Phase 2 (LEEP2)', });
+    console.log(building);
     this.setState({
       loaded: true,
       building: building,
@@ -32,7 +34,8 @@ class Building extends Component {
   }
 
   getReviews() {
-    return Reviews.findOne({ facility: this.state.building._id });
+    // TODO: change this back to id once we deploy
+    return Reviews.findOne({ type: 'building' });
   }
 
   render() {
