@@ -8,14 +8,13 @@ import { createContainer } from 'meteor/react-meteor-data';
 import ui from '../../components';
 import { Buildings } from '../../../api/buildings/buildings.js';
 
-Meteor.subscribe('buildings');
-
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       searchInput: '',
     };
+    Meteor.subscribe('buildings');
     this.handleInput = this.handleInput.bind(this);
     this.findBuilding = this.findBuilding.bind(this);
   }
