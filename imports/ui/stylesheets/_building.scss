@@ -1,0 +1,38 @@
+.building-map-bg {
+  height: 500px;
+  width: 100%;
+  position: absolute;
+  background: url('/../../../illustrations/map.png') center center;
+  background-size: cover;
+  opacity: 0.2;
+}
+
+.building-details {
+  z-index: 1;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.building-name {
+  width: 750px;
+  margin-bottom: 15px;
+  font-size: 36px;
+  font-weight: $bold;
+}
+
+.building-address {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: $light;
+}
+
+.building-map-btn {
+  background-color: transparent;
+  padding: 10px 45px;
+  font-size: 24px;
+  font-weight: $bold;
+}

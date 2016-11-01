@@ -28,15 +28,13 @@ class Building extends Component {
   }
 
   render() {
+    // TODO: figure out how to load async data requests
+    // NOTE: for now, click the button to load data.
     return (
       <div>
-        <ui.Button
-          style="btn-lavender"
-          text="bleh"
-          onClick={this.findBuilding}
-        />
         {this.state.loaded ? (
           <div className="container">
+            <div className="building-map-bg"></div>
             <div className="building-details">
               <div className="building-name">
                 {this.state.building.name}
@@ -51,16 +49,18 @@ class Building extends Component {
                   {this.state.building.address.zip}&nbsp;
                 </div>
               </div>
-              <div className="building-map">
-                <a
-                  className="btn-default-invert"
-                  href={"https://maps.google.com?q=" + this.state.building.address.full}
-                  target="_blank"
-                >MAP</a>
-              </div>
-            </div>
+              <a className="btn-default-invert building-map-btn"
+                href={"https://maps.google.com?q=" + this.state.building.address.full}
+                target="_blank">MAP</a>
+          </div>
           </div>
         ) : <div></div>}
+
+        <ui.Button
+          style="btn-lavender"
+          text="bleh"
+          onClick={this.findBuilding}
+        />
       </div>
     );
   }
