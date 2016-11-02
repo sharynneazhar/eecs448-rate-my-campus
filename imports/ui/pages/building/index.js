@@ -44,9 +44,9 @@ class Building extends Component {
     return (
       <div>
         {this.state.loaded ? (
-          <div className="container">
+          <div>
             <div className="building-map-bg"></div>
-            <div className="building-details">
+            <div className="container building-details">
               <div className="building-name">
                 {this.state.building.name}
               </div>
@@ -64,19 +64,17 @@ class Building extends Component {
                 href={"https://maps.google.com?q=" + this.state.building.address.full}
                 target="_blank">MAP</a>
             </div>
-            <div className="building-rating">
-              <div className="building-overall-quality">
+            <div className="row container center-block overall-rating">
+              <div className="col-xs-4 overall-quality">
                 OVERALL QUALITY
-                <div className="building-overall-quality-value">
-                  4.2
-                </div>
+                <div className="overall-quality-value">4.2</div>
               </div>
-              <ui.Ratings
-                parameters={reviews.ratings}
-              />
+              <div className="col-xs-7 col-xs-offset-1">
+                <ui.RatingsList parameters={reviews.ratings} />
+              </div>
             </div>
           </div>
-        ) : <div></div>}
+        ) : <div />}
 
         <ui.Button
           style="btn-lavender"

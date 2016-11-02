@@ -3,7 +3,7 @@ import React, {
   PropTypes
 } from 'react';
 
-export default class Ratings extends Component {
+export default class RatingsList extends Component {
   constructor(props) {
     super(props);
     this.getFontColor = this.getFontColor.bind(this);
@@ -29,21 +29,21 @@ export default class Ratings extends Component {
     let second = Object.entries(this.props.parameters);
     let first = second.splice(0,4);
     return (
-      <div className="ratings-container">
-        <div className="ratings-group">
+      <div className="row ratings-container">
+        <div className="col-xs-6 rating-group">
           {first.map((rating, idx) => {
             return (
-              <div key={idx} className="ratings-inner-container">
+              <div key={idx} className="ratings-inner">
                 <div className={this.getFontColor(rating[1])}>{rating[1].toFixed(1)}</div>
                 <div className="rating-name">{this.manipulateRatingName(rating[0])}</div>
               </div>
             );
           })}
         </div>
-        <div className="ratings-group">
+        <div className="col-xs-6 rating-group">
           {second.map((rating, idx) => {
             return (
-              <div key={idx} className="ratings-inner-container">
+              <div key={idx} className="ratings-inner">
                 <div className={this.getFontColor(rating[1])}>{rating[1].toFixed(1)}</div>
                 <div className="rating-name">{this.manipulateRatingName(rating[0])}</div>
               </div>
@@ -55,6 +55,6 @@ export default class Ratings extends Component {
   }
 }
 
-Ratings.propTypes = {
+RatingsList.propTypes = {
   parameters: PropTypes.object,
 };

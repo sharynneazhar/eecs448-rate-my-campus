@@ -3,7 +3,7 @@ import Header from './header';
 import Footer from './footer';
 import Button from './button';
 import SearchInput from './searchInput';
-import Ratings from './ratings';
+import RatingsList from './ratingsList';
 
 const components = {
   Accounts,
@@ -11,7 +11,7 @@ const components = {
   Header,
   Footer,
   SearchInput,
-  Ratings,
+  RatingsList,
 };
 
 export default components;
