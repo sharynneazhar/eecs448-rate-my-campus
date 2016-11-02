@@ -27,12 +27,13 @@ class Home extends Component {
 
   findBuilding(e) {
     e.preventDefault();
-    console.log(Buildings.find({
+    let query = Buildings.find({
       name: {
         $regex: this.state.searchInput,
         $options: 'i'
       },
-    }).fetch());
+    }).fetch();
+    this.props.history.push('/building/test');
   }
 
   render() {
