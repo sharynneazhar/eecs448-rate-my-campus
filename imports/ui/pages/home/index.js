@@ -33,7 +33,8 @@ class Home extends Component {
         $options: 'i'
       },
     }).fetch();
-    this.props.history.push('/building/test');
+    let url = `/building/${query[0].name}`;
+    this.props.history.push(url);
   }
 
   render() {
@@ -50,13 +51,12 @@ class Home extends Component {
               onChange={this.handleInput}
             />
             <ui.Button
-              style="btn-lavender"
+              style="btn-lavender btn btn-xl"
               type="submit"
               text="Search"
             />
           </form>
         </div>
-
         <div className="recent-rating-section">
           <div className="recent-rating-title">Recent Ratings</div>
         </div>

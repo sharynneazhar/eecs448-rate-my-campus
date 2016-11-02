@@ -2,77 +2,65 @@ button {
   font-family: $open-sans;
   background-color: transparent;
   border: none;
-}
-
-.btn-base {
-  display: block;
-  padding: 14px 70px;
-  text-align: center;
-  font-size: 26px;
-  text-decoration: none;
+  border-radius: 0 !important;
 }
 
 .btn-default {
-  @extend .btn-base;
   background-color: $charcoal;
   color: $white;
 }
 
 .btn-default-invert {
-  @extend .btn-base;
   background-color: $white;
   border: 2px solid $charcoal;
   color: $charcoal;
 }
 
 .btn-lavender {
-  @extend .btn-base;
   background-color: $lavender;
   color: $white;
 }
 
 .btn-lavender-invert {
-  @extend .btn-base;
   background-color: $white;
   border: 2px solid $lavender;
   color: $lavender;
 }
 
 .btn-blue {
-  @extend .btn-base;
   background-color: $blue;
   color: $white;
 }
 
 .btn-blue-invert {
-  @extend .btn-base;
   background-color: $white;
   border: 2px solid $blue;
   color: $blue;
 }
 
 .btn-green {
-  @extend .btn-base;
   background-color: $green;
   color: $white;
 }
 
 .btn-green-invert {
-  @extend .btn-base;
   background-color: $white;
   border: 2px solid $green;
   color: $green;
 }
 
 .btn-red {
-  @extend .btn-base;
   background-color: $red;
   color: $white;
 }
 
 .btn-red-invert {
-  @extend .btn-base;
   background-color: $white;
   border: 2px solid $red;
   color: $red;
+}
+
+.btn-xl {
+  font-size: 28px;
+  padding: 10px 50px;
 }

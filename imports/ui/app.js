@@ -15,7 +15,7 @@ class App extends Component {
       <div className="wrapper">
         <ui.Header />
         {this.props.children}
-        <ui.Footer />
+        {/* <ui.Footer /> */}
       </div>
     );
   }

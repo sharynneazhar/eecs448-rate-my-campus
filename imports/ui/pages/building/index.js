@@ -24,9 +24,7 @@ class Building extends Component {
               {this.props.building.address.zip}&nbsp;
             </div>
           </div>
-          <a className="btn-default-invert building-map-btn"
-            href={"https://maps.google.com?q=" + this.props.building.address.full}
-            target="_blank">MAP</a>
+          <a className="btn-default-invert building-map-btn" href={"https://maps.google.com?q=" + this.props.building.address.full} target="_blank">MAP</a>
         </div>
         <div className="row container center-block overall-rating">
           <div className="col-xs-4 overall-quality">
@@ -53,6 +51,20 @@ class Building extends Component {
     return (
       <div>
         {this.props.loading ? this.renderSpinner() : this.renderBlock()}
+        <div className="row container center-block button-group">
+          <div className="col-xs-3 col-xs-offset-6">
+            <ui.Button
+              style="btn-lavender btn btn-lg"
+              text="Find a Classroom"
+            />
+          </div>
+          <div className="col-xs-3">
+            <ui.Button
+              style="btn-lavender btn btn-lg"
+              text="Rate this Building"
+            />
+          </div>
+        </div>
       </div>
     );
   }
