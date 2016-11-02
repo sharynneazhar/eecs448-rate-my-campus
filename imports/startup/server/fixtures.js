@@ -30,6 +30,17 @@ Meteor.startup(() => {
           zip: '66045',
         },
       },
+      {
+        name: 'Malott Hall',
+        description: 'Malott houses the departments of chemistry and of physics and astronomy and its observatory; the departments of medicinal chemistry and pharmacology and toxicology in the School of Pharmacy; the Molecular Structures Group of laboratories in mass spectrometry, nuclear magnetic resonance, protein structures and other specialties; administrative offices; faculty and staff offices; classrooms; specialty laboratories and research facilities; the Animal Care Unit; and support and supply services. A new School of Pharmacy building on west campus was completed in August 2010.',
+        address: {
+          full: '1251 Wescoe Hall Drive Lawrence, KS 66045',
+          street: '1251 Wescoe Hall Drive',
+          city: 'Lawrence',
+          state: 'KS',
+          zip: '66045',
+        },
+      },
     ];
 
     buildings.forEach((building) => {
