@@ -1,20 +1,14 @@
-.building-map-bg {
+.building-details {
   height: 500px;
   width: 100%;
-  position: absolute;
-  background: url('/../../../illustrations/map.png') center center;
-  background-size: cover;
-  opacity: 0.2;
-}
-
-.building-details {
-  z-index: 1;
-  height: 500px;
+  margin-top: -20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  background: url('/../../../illustrations/map.png') no-repeat center center;
+  background-size: cover;
 }
 
 .building-name {
@@ -36,12 +30,20 @@
   font-weight: $bold;
 }
 
+.building-map-btn:hover,
+.building-map-btn:active,
+.building-map-btn:focus {
+  text-decoration: none;
+  color: $blue;
+  border-color: $blue;
+}
+
 .overall-rating {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-top: 40px;
+  padding-top: 25px;
   padding-bottom: 10px;
   text-align: center;
   border-bottom: 1px solid $border;

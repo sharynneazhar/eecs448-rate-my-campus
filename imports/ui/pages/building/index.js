@@ -7,9 +7,9 @@ import ui from '../../components';
 
 class Building extends Component {
   renderBlock() {
+    let url = `https://maps.google.com?q=${this.props.building.address.full}`;
     return (
       <div>
-        <div className="building-map-bg"></div>
         <div className="container building-details">
           <div className="building-name">
             {this.props.building.name}
@@ -24,7 +24,7 @@ class Building extends Component {
               {this.props.building.address.zip}&nbsp;
             </div>
           </div>
-          <a className="btn-default-invert building-map-btn" href={"https://maps.google.com?q=" + this.props.building.address.full} target="_blank">MAP</a>
+          <a className="btn-default-invert building-map-btn" href={url} target="_blank">MAP</a>
         </div>
         <div className="row container center-block overall-rating">
           <div className="col-xs-4 overall-quality">
