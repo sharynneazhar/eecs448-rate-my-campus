@@ -13,12 +13,12 @@ based on student feedback.
 </a>
 
 ### Getting Started
-##### Pre-requisites
+#### Pre-requisites
 - Install [Meteor][9]
 - Download the repository
   `git clone https://github.com/sharynneazhar/eecs448-rate-my-campus.git`
 
-##### Running the app
+#### Running the app
 - Install dependencies `meteor npm install`
 - Run the app `meteor`
 - Navigate to `http://localhost:3000` to see the app working.
@@ -36,9 +36,12 @@ Atmosphere packages are packages written specifically for Meteor.
 - See all the packages you have installed, run `meteor list`
 - Remove unwanted package, run `meteor remove <package name>`
 
+#### Running Tests
+Run `npm run tests` and navigate to `http://localhost:3100` to view the test results. For more
+information on testing, click [here][15]
 
 ### Resources
-##### React & Meteor
+#### React & Meteor
 - [React Documentation][4] - React is a JavaScript library for creating user
 interfaces. Many people choose to think of React as the V in MVC.
 - [Meteor Documentation][1] - Meteor is a full-stack JavaScript platform for
@@ -47,12 +50,12 @@ developing modern web and mobile applications.
 rendering library, with Meteor.
 - [The Meteor Chef][13] - The Meteor Chef teaches you how to build software with Meteor, adding a dash of dev wisdom for taste.
 
-###### ECMAScript 6 (ES6)
+#### ECMAScript 6 (ES6)
 - [Luke Hoban's "ES6 Features"][10]
 - [Kyle Simpson's "You don't know JS: ES6 and beyond"][11]
 - [Nikolas C. Zakas "Understanding ECMAScript 6"][12]
 
-##### Tutorial
+#### Tutorial
 - [React with Meteor Tutorial][3] - Create a simple app to manage a 'to do'
 list and collaborate with others on those tasks.
 - [Beginner's Guide to MongoDB and Meteor][14] - How MongoDB works with Meteor
@@ -77,3 +80,4 @@ This project is currently maintained by [Sharynne Azhar][5], [Erin Coots][6],
 [12]: https://github.com/nzakas/understandinges6
 [13]: https://themeteorchef.com/
 [14]: http://meteortips.com/first-meteor-tutorial/databases-part-1/
+[15]: https://guide.meteor.com/testing.html
