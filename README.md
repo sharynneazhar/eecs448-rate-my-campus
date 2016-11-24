@@ -23,6 +23,19 @@ based on student feedback.
 - Run the app `meteor`
 - Navigate to `http://localhost:3000` to see the app working.
 
+##### Installing NPM packages
+Run `meteor npm install --save <package name>`
+> What is the difference between `--save` and `--save-dev`?  
+- `--save-dev` is used to save the package for development purpose. Example:
+unit tests, minification.
+- `--save` is used to save the package required for the application to run.
+
+##### Installing Atmosphere packages
+Atmosphere packages are packages written specifically for Meteor.
+- Install an Atmosphere package, run `meteor add <package name>`
+- See all the packages you have installed, run `meteor list`
+- Remove unwanted package, run `meteor remove <package name>`
+
 #### Running Tests
 Run `npm run tests` and navigate to `http://localhost:3100` to view the test results. For more
 information on testing, click [here][15]
