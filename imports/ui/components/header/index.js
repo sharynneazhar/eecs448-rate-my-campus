@@ -22,6 +22,9 @@ export default class Header extends Component {
             <span className="header-login-separator">/</span>
             <a href="#">SIGN UP</a>
           </div> */}
+          <div className="navbar-text navbar-right header-help">
+            <a href="#">HELP</a>
+          </div>
         </div>
       </div>
     );
