@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import Spinner from 'react-spinkit';
 import ui from '../../components';
-import { Link, } from 'react-router';
+import { Link } from 'react-router';
 
 class Building extends Component {
   renderBlock() {
@@ -54,7 +54,7 @@ class Building extends Component {
         {this.props.loading ? this.renderSpinner() : this.renderBlock()}
         <div className="row container center-block button-group">
           <div className="col-xs-3 col-xs-offset-6">
-            <Link to="/">
+            <Link to="/classroomSearch">
               <ui.Button
                 style="btn-lavender btn btn-lg"
                 text="Find a Classroom"
