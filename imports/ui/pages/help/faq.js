@@ -24,6 +24,16 @@ class FAQ extends Component {
             </div>
             <div className="help-section-content">
               <h1>FAQ</h1>
+              <br />
+              <h4><b>Q:</b> What is the answer to life, the unvierse and everything?</h4>
+              <p><b>A:</b> 42</p>
+              <br />
+              <h4><b>Q:</b> Who ya gonna call?</h4>
+              <p><b>A:</b> Ghostbusters</p>
+              <br />
+              <h4><b>Q:</b> What is the answer to life, the unvierse and everything?</h4>
+              <p><b>A:</b> 42</p>
+              <br />
             </div>
           </div>
         </div>
