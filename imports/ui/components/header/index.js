@@ -18,7 +18,7 @@ export default class Header extends Component {
             </div>
           </div>
           <div className="navbar-text navbar-right header-help">
-            <Link to="/" className="header-help-link">HELP</Link>
+            <Link to="/help" className="header-help-link">HELP</Link>
           </div>
           {/* <div className="navbar-text navbar-right header-login">
             <a href="#">LOG IN</a>

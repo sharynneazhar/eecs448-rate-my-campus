@@ -42,7 +42,7 @@ class Home extends Component {
       <div>
         <div className="find-section">
           <div className="find-section-title">
-            Find a building
+            Find a Building
           </div>
           <form className="searchForm" onSubmit={this.findBuilding}>
             <ui.SearchInput

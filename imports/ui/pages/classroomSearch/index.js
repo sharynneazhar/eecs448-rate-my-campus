@@ -42,7 +42,7 @@ class ClassroomSearch extends Component {
       <div>
         <div className="find-section">
           <div className="find-section-title">
-            Find a classroom
+            Find a Classroom
           </div>
           <form className="searchForm" onSubmit={this.findBuilding}>
             <ui.SearchInput
