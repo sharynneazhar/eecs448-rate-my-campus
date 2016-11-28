@@ -56,7 +56,7 @@ Meteor.startup(() => {
     const reviews = [
       {
         type: 'building',
-        facility: '8XDYMhmzANPmosubR',
+        facilityId: '8XDYMhmzANPmosubR',
         dateReviewed: new Date(),
         ratings: {
           internet: 4.2,
@@ -72,7 +72,7 @@ Meteor.startup(() => {
       },
       {
         type: 'building',
-        facility: '8XDYMhmzANPmosubR',
+        facilityId: '8XDYMhmzANPmosubR',
         dateReviewed: new Date(),
         ratings: {
           internet: 4.8,
