@@ -13,6 +13,7 @@ export const addBuilding = new ValidatedMethod({
     "address.city": { type: String },
     "address.state": { type: String },
     "address.zip": { type: String },
+    "overallQuality": { type: Number, decimal: true },
   }).validator(),
   run(building) {
     Buildings.insert(building);
@@ -31,6 +32,7 @@ export const updateBuilding = new ValidatedMethod({
     "address.city": { type: String, optional: true },
     "address.state": { type: String, optional: true },
     "address.zip": { type: String, optional: true },
+    "overallQuality": { type: Number, optional: true, decimal: true },
   }).validator(),
   run(_id) {
     // Buildings.update(_id);
@@ -44,5 +46,18 @@ export const removeBuilding = new ValidatedMethod({
   }).validator(),
   run({ _id }) {
     Buildings.remove(_id);
+  }
+});
+
+export const updateOverallQuality = new ValidatedMethod({
+  name: 'Buildings.methods.updateOverallQuality',
+  validate: new SimpleSchema({
+    _id: { type: String },
+    "overallQuality": { type: Number, decimal: true },
+  }).validator(),
+  run({ _id, overallQuality }) {
+    Buildings.update(_id, {
+      $set: { overallQuality: overallQuality }
+    });
   }
 });

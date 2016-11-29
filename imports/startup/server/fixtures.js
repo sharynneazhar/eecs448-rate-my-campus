@@ -17,7 +17,8 @@ Meteor.startup(() => {
           city: 'Lawrence',
           state: 'KS',
           zip: '66045',
-        }
+        },
+        overallQuality: 4.0,
       },
       {
         name: 'Learned Hall',
@@ -29,6 +30,7 @@ Meteor.startup(() => {
           state: 'KS',
           zip: '66045',
         },
+        overallQuality: 4.0,
       },
       {
         name: 'Malott Hall',
@@ -40,13 +42,14 @@ Meteor.startup(() => {
           state: 'KS',
           zip: '66045',
         },
+        overallQuality: 4.0,
       },
     ];
 
     buildings.forEach((building) => {
       addBuilding.call(building, (error) => {
         if (error) {
-          console.log("There was an error inserting mock building data");
+          console.log("There was an error inserting mock building data: ", error);
         }
       });
     });
@@ -108,7 +111,7 @@ Meteor.startup(() => {
     reviews.forEach((review) => {
       addReview.call(review, (error) => {
         if (error) {
-          console.log("There was an error inserting mock review data");
+          console.log("There was an error inserting mock review data: ", error);
         }
       });
     });

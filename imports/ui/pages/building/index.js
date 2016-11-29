@@ -39,7 +39,9 @@ class Building extends Component {
         <div className="row container center-block overall-rating">
           <div className="col-xs-4 overall-quality">
             OVERALL QUALITY
-            <div className="overall-quality-value">4.2</div>
+            <div className="overall-quality-value">
+              {this.props.building.overallQuality.toFixed(1)}
+            </div>
           </div>
           <div className="col-xs-7 col-xs-offset-1">
             <ui.RatingsList parameters={this.props.reviews[0].ratings} />
