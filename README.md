@@ -37,7 +37,7 @@ Atmosphere packages are packages written specifically for Meteor.
 - Remove unwanted package, run `meteor remove <package name>`
 
 #### Running Tests
-Run `npm run tests` and navigate to `http://localhost:3100` to view the test results. For more
+Run `npm run test` and navigate to `http://localhost:3100` to view the test results. For more
 information on testing, click [here][15]
 
 ### Resources

@@ -23,17 +23,17 @@ export const updateBuilding = new ValidatedMethod({
   name: 'Buildings.methods.update',
   validate: new SimpleSchema({
     _id: { type: String },
-    "update.name": { type: String, optional: true },
-    "update.description": { type: String, optional: true },
-    "update.address": { type: Object, optional: true },
-    "update.address.full": { type: String, optional: true },
-    "update.address.street": { type: String, optional: true },
-    "update.address.city": { type: String, optional: true },
-    "update.address.state": { type: String, optional: true },
-    "update.address.zip": { type: String, optional: true },
+    "name": { type: String, optional: true },
+    "description": { type: String, optional: true },
+    "address": { type: Object, optional: true },
+    "address.full": { type: String, optional: true },
+    "address.street": { type: String, optional: true },
+    "address.city": { type: String, optional: true },
+    "address.state": { type: String, optional: true },
+    "address.zip": { type: String, optional: true },
   }).validator(),
-  run({ _id, update }) {
-    Buildings.update(_id, { $set: update });
+  run(_id) {
+    // Buildings.update(_id);
   }
 });
 

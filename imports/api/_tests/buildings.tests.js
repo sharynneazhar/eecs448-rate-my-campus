@@ -8,14 +8,14 @@ import { Buildings } from '../buildings/buildings.js';
 import {
   addBuilding,
   removeBuilding,
+  updateBuilding,
 } from '../buildings/methods.js';
 
 if (Meteor.isServer) {
   describe('Buildings', () => {
     describe('Methods', () => {
 
-      // make sure database is in the state we expect before running tests
-      beforeEach(() => {
+      after(() => {
         Buildings.remove({});
       });
 
@@ -30,10 +30,18 @@ if (Meteor.isServer) {
       it('can remove a building', () => {
         const size = MockBuildings.length;
         const buildingId = Buildings.findOne()._id;
-        removeBuilding.call(buildingId);
+        removeBuilding.call({ _id: buildingId });
         assert.equal(Buildings.find().count(), size - 1);
       });
 
+      // it('can update a building', () => {
+      //   const buildingId = Buildings.find().fetch()[0]._id;
+      //   const oldData = Buildings.findOne(buildingId).description;
+      //   updateBuilding.call(buildingId, { description: "updated description", });
+      //   const newData = Buildings.findOne(buildingId).description;
+      //   console.log(Buildings.findOne(buildingId));
+      //   assert.notEqual(oldData, newData);
+      // });
     });
   });
 }
