@@ -17,6 +17,9 @@ export default class Header extends Component {
               <Link to="/" className="header-link">RATE MY CAMPUS</Link>
             </div>
           </div>
+          <div className="navbar-text navbar-right header-help">
+            <Link to="/help" className="header-help-link">HELP</Link>
+          </div>
           {/* <div className="navbar-text navbar-right header-login">
             <a href="#">LOG IN</a>
             <span className="header-login-separator">/</span>

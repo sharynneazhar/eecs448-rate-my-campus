@@ -2,15 +2,20 @@
   "name": "rate-my-campus",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package practicalmeteor:mocha --port 3100"
   },
   "dependencies": {
+    "babel-runtime": "^6.18.0",
     "bcrypt": "^0.8.7",
     "classnames": "^2.2.5",
+    "enzyme": "^2.6.0",
     "meteor-node-stubs": "~0.2.0",
     "react": "^15.3.2",
     "react-addons-pure-render-mixin": "^15.3.2",
+    "react-addons-test-utils": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-list": "^0.8.0",
     "react-router": "^2.8.1",
     "react-spinkit": "^1.1.11"
   }

@@ -4,6 +4,7 @@ import Footer from './footer';
 import Button from './button';
 import SearchInput from './searchInput';
 import RatingsList from './ratingsList';
+import HelpNav from './helpNav';
 
 const components = {
   Accounts,
@@ -12,6 +13,7 @@ const components = {
   Footer,
   SearchInput,
   RatingsList,
+  HelpNav,
 };
 
 export default components;

@@ -53,10 +53,11 @@ Meteor.startup(() => {
   }
 
   if (Reviews.find().count() === 0) {
+    const buildingId = Buildings.findOne()._id;
     const reviews = [
       {
         type: 'building',
-        facility: '8XDYMhmzANPmosubR',
+        facilityId: buildingId,
         dateReviewed: new Date(),
         ratings: {
           internet: 4.2,
@@ -72,7 +73,7 @@ Meteor.startup(() => {
       },
       {
         type: 'building',
-        facility: '8XDYMhmzANPmosubR',
+        facilityId: buildingId,
         dateReviewed: new Date(),
         ratings: {
           internet: 4.8,

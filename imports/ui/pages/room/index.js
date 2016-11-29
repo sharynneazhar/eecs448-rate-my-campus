@@ -3,12 +3,9 @@ import React, {
   PropTypes
 } from 'react';
 import Spinner from 'react-spinkit';
-import ReactList from 'react-list';
 import ui from '../../components';
-import { Link } from 'react-router';
-import { moment } from 'meteor/momentjs:moment';
 
-class Building extends Component {
+class Room extends Component {
   renderBlock() {
     let url = `https://maps.google.com?q=${this.props.building.address.full}`;
     return (
@@ -35,7 +32,7 @@ class Building extends Component {
             <div className="overall-quality-value">4.2</div>
           </div>
           <div className="col-xs-7 col-xs-offset-1">
-            <ui.RatingsList parameters={this.props.reviews[0].ratings} />
+            <ui.RatingsList parameters={this.props.reviews.ratings} />
           </div>
         </div>
       </div>
@@ -50,41 +47,16 @@ class Building extends Component {
     );
   }
 
-  renderReviews() {
-    const reviews = this.props.reviews.map((review, index) =>
-      <div key={review._id} className="row">
-        <div className="col-xs-6">
-          <ui.RatingsList parameters={review.ratings} />
-        </div>
-        <div className="col-xs-6">
-          <div>
-            {moment(review.dateReviewed).format('MMM Do YYYY')}
-          </div>
-          <div>
-            {review.comments}
-          </div>
-        </div>
-      </div>
-    );
-    return (
-      <div>
-        {reviews}
-      </div>
-    );
-  }
-
   render() {
     return (
       <div>
         {this.props.loading ? this.renderSpinner() : this.renderBlock()}
         <div className="row container center-block button-group">
           <div className="col-xs-3 col-xs-offset-6">
-            <Link to="/classroomSearch">
-              <ui.Button
-                style="btn-lavender btn btn-lg"
-                text="Find a Classroom"
-              />
-            </Link>
+            <ui.Button
+              style="btn-lavender btn btn-lg"
+              text="Find a Classroom"
+            />
           </div>
           <div className="col-xs-3">
             <ui.Button
@@ -93,14 +65,11 @@ class Building extends Component {
             />
           </div>
         </div>
-        <div className="row container center-block">
-          {this.renderReviews()}
-        </div>
       </div>
     );
   }
 }
 
-Building.propTypes = {};
+Room.propTypes = {};
 
-export default Building;
+export default Room;

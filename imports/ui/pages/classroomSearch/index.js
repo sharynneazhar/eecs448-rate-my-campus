@@ -8,7 +8,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import ui from '../../components';
 import { Buildings } from '../../../api/buildings/buildings.js';
 
-class Home extends Component {
+class ClassroomSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +33,7 @@ class Home extends Component {
         $options: 'i'
       },
     }).fetch();
-    let url = `/building/${query[0]._id}`;
+    let url = `/building/${query[0].name}`;
     this.props.history.push(url);
   }
 
@@ -42,12 +42,12 @@ class Home extends Component {
       <div>
         <div className="find-section">
           <div className="find-section-title">
-            Find a Building
+            Find a Classroom
           </div>
           <form className="searchForm" onSubmit={this.findBuilding}>
             <ui.SearchInput
               type="text"
-              placeholder="building name"
+              placeholder="classroom name"
               onChange={this.handleInput}
             />
             <ui.Button
@@ -65,6 +65,6 @@ class Home extends Component {
   }
 }
 
-Home.propTypes = {};
+ClassroomSearch.propTypes = {};
 
-export default Home;
+export default ClassroomSearch;

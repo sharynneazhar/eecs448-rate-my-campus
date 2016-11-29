@@ -7,9 +7,9 @@ export const addReview = new ValidatedMethod({
   validate: new SimpleSchema({
     type: {
       type: String,
-      allowedValues: ['building','room','others']
+      allowedValues: ['school', 'building','room','others']
     },
-    facility: { type: String },
+    facilityId: { type: String },
     dateReviewed: { type: Date },
     ratings: {
       type: Object,
