@@ -33,7 +33,10 @@ export default class RatingsList extends Component {
         <div className="col-xs-6 rating-group">
           {first.map((rating, idx) => {
             return (
-              <div key={idx} className="ratings-inner">
+              <div
+                key={idx}
+                className={"ratings-inner" + (idx === 3 ? "" : " ratings-bottom-pad")}
+              >
                 <div className={this.getFontColor(rating[1])}>{rating[1].toFixed(1)}</div>
                 <div className="rating-name">{this.manipulateRatingName(rating[0])}</div>
               </div>
@@ -43,7 +46,10 @@ export default class RatingsList extends Component {
         <div className="col-xs-6 rating-group">
           {second.map((rating, idx) => {
             return (
-              <div key={idx} className="ratings-inner">
+              <div
+                key={idx}
+                className={"ratings-inner" + (idx === 3 ? "" : " ratings-bottom-pad")}
+              >
                 <div className={this.getFontColor(rating[1])}>{rating[1].toFixed(1)}</div>
                 <div className="rating-name">{this.manipulateRatingName(rating[0])}</div>
               </div>

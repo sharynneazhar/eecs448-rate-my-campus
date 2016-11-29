@@ -87,6 +87,22 @@ Meteor.startup(() => {
         },
         comments: 'We need a better cafe in here with foooooood.'
       },
+      {
+        type: 'building',
+        facilityId: buildingId,
+        dateReviewed: new Date(),
+        ratings: {
+          internet: 4.8,
+          studyAreas: 4.0,
+          parking: 2.5,
+          dining: 2.2,
+          restrooms: 4.6,
+          trashMaintenance: 3.2,
+          vendingMachines: 2.5,
+          accessibility: 3.0
+        },
+        comments: 'Hello, is it me you\'re looking foooooor.'
+      },
     ];
 
     reviews.forEach((review) => {

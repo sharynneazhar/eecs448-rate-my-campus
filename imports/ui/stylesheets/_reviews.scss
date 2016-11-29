@@ -1,0 +1,27 @@
+.review-inner {
+  padding: 20px;
+  font-family: $montserrat;
+}
+
+.review-right-border {
+  border-right: 1px solid $white;
+}
+
+.grey-row {
+  background-color: $lightGrey;
+}
+
+.review-date {
+  padding-top: 5px;
+  padding-bottom: 15px;
+  font-size: 14px;
+  font-weight: $light;
+  color: $slate;
+}
+
+@media (max-width: 962px) {
+  .review-inner,
+  .review-date {
+    font-size: 12px;
+  }
+}

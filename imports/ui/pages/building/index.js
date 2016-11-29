@@ -9,7 +9,7 @@ import { Link } from 'react-router';
 import { moment } from 'meteor/momentjs:moment';
 
 class Building extends Component {
-  renderBlock() {
+  renderMap() {
     let url = `https://maps.google.com?q=${this.props.building.address.full}`;
     return (
       <div>
@@ -29,6 +29,13 @@ class Building extends Component {
           </div>
           <a className="btn-default-invert building-map-btn" href={url} target="_blank">MAP</a>
         </div>
+      </div>
+    );
+  }
+
+  renderOverallRatings() {
+    if (this.props.reviews.length !== 0) {
+      return (
         <div className="row container center-block overall-rating">
           <div className="col-xs-4 overall-quality">
             OVERALL QUALITY
@@ -38,8 +45,9 @@ class Building extends Component {
             <ui.RatingsList parameters={this.props.reviews[0].ratings} />
           </div>
         </div>
-      </div>
-    );
+      );
+    }
+    return null;
   }
 
   renderSpinner() {
@@ -50,48 +58,50 @@ class Building extends Component {
     );
   }
 
+  formatDate(date) {
+    return moment(date).format('MMM D, YYYY');
+  }
+
   renderReviews() {
+    if (this.props.reviews.length === 0) {
+      return <div>Be first to review this building.</div>;
+    }
+
     const reviews = this.props.reviews.map((review, index) =>
-      <div key={review._id} className="row">
-        <div className="col-xs-6">
+      <div
+        key={review._id}
+        className={"row" + (index % 2 ? "" : " grey-row")}
+      >
+        <div className="col-xs-6 review-inner review-right-border">
           <ui.RatingsList parameters={review.ratings} />
         </div>
-        <div className="col-xs-6">
-          <div>
-            {moment(review.dateReviewed).format('MMM Do YYYY')}
+        <div className="col-xs-6 review-inner">
+          <div className="review-date">
+            {this.formatDate(review.dateReviewed)}
           </div>
-          <div>
-            {review.comments}
-          </div>
+          <div>{review.comments}</div>
         </div>
       </div>
     );
-    return (
-      <div>
-        {reviews}
-      </div>
-    );
+    return <div>{reviews}</div>;
   }
 
   render() {
     return (
       <div>
-        {this.props.loading ? this.renderSpinner() : this.renderBlock()}
-        <div className="row container center-block button-group">
-          <div className="col-xs-3 col-xs-offset-6">
-            <Link to="/classroomSearch">
-              <ui.Button
-                style="btn-lavender btn btn-lg"
-                text="Find a Classroom"
-              />
-            </Link>
-          </div>
-          <div className="col-xs-3">
+        {this.props.loading ? this.renderSpinner() : this.renderMap()}
+        {this.renderOverallRatings()}
+        <div className="container button-group">
+          <Link to="/classroomSearch">
             <ui.Button
-              style="btn-lavender btn btn-lg"
-              text="Rate this Building"
+              style="btn-lavender btn btn-lg btn-rMargin"
+              text="Find a Classroom"
             />
-          </div>
+          </Link>
+          <ui.Button
+            style="btn-lavender btn btn-lg"
+            text="Rate this Building"
+          />
         </div>
         <div className="row container center-block">
           {this.renderReviews()}
