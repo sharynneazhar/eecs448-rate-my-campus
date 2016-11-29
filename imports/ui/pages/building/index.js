@@ -3,8 +3,10 @@ import React, {
   PropTypes
 } from 'react';
 import Spinner from 'react-spinkit';
+import ReactList from 'react-list';
 import ui from '../../components';
 import { Link } from 'react-router';
+import { moment } from 'meteor/momentjs:moment';
 
 class Building extends Component {
   renderBlock() {
@@ -33,7 +35,7 @@ class Building extends Component {
             <div className="overall-quality-value">4.2</div>
           </div>
           <div className="col-xs-7 col-xs-offset-1">
-            <ui.RatingsList parameters={this.props.reviews.ratings} />
+            <ui.RatingsList parameters={this.props.reviews[0].ratings} />
           </div>
         </div>
       </div>
@@ -44,6 +46,29 @@ class Building extends Component {
     return (
       <div className="spinner-container">
         <Spinner spinnerName="wandering-cubes" />
+      </div>
+    );
+  }
+
+  renderReviews() {
+    const reviews = this.props.reviews.map((review, index) =>
+      <div key={review._id} className="row">
+        <div className="col-xs-6">
+          <ui.RatingsList parameters={review.ratings} />
+        </div>
+        <div className="col-xs-6">
+          <div>
+            {moment(review.dateReviewed).format('MMM Do YYYY')}
+          </div>
+          <div>
+            {review.comments}
+          </div>
+        </div>
+      </div>
+    );
+    return (
+      <div>
+        {reviews}
       </div>
     );
   }
@@ -67,6 +92,9 @@ class Building extends Component {
               text="Rate this Building"
             />
           </div>
+        </div>
+        <div className="row container center-block">
+          {this.renderReviews()}
         </div>
       </div>
     );

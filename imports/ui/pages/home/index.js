@@ -33,7 +33,7 @@ class Home extends Component {
         $options: 'i'
       },
     }).fetch();
-    let url = `/building/${query[0].name}`;
+    let url = `/building/${query[0]._id}`;
     this.props.history.push(url);
   }
 
