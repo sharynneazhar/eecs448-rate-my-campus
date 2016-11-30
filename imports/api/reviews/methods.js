@@ -3,6 +3,8 @@ import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import { Reviews } from './reviews';
 import { Buildings } from '../buildings/buildings.js';
 import { updateOverallQuality } from '../buildings/methods.js';
+import { Rooms } from '../rooms/rooms.js';
+import { updateRoomOverallQuality } from '../rooms/methods.js';
 
 export const addReview = new ValidatedMethod({
   name: 'Reviews.methods.insert',
@@ -20,21 +22,33 @@ export const addReview = new ValidatedMethod({
     comments: { type: String }
   }).validator(),
   run(review) {
-    const building = Buildings.findOne({ _id: review.facilityId, });
-    const ratings = Object.values(review.ratings);
-    const sum = ratings.reduce((a, b) => {
-      return a + b;
-    });
-    const average = sum / ratings.length;
-    const newAverage = (building.overallQuality + average) / 2;
-    updateOverallQuality.call({
-      _id: building._id,
-      overallQuality: newAverage,
-    }, (error) => {
-      if (error) {
-        console.log("There was an error updating building overall quality", error);
-      }
-    });
+    if (review.type === 'building') {
+      const building = Buildings.findOne({ _id: review.facilityId, });
+      const _id = building._id;
+      let overallQuality = building.overallQuality;
+      const average = Object.values(review.ratings).reduce((a, b) => {
+        return (a + b) / 2;
+      });
+      overallQuality = (overallQuality + average) / 2;
+      updateOverallQuality.call({ _id, overallQuality }, (error) => {
+        if (error) {
+          console.log("There was an error updating building overall quality", error);
+        }
+      });
+    } else if (review.type === 'room') {
+      const room = Rooms.findOne({ _id: review.facilityId, });
+      const _id = room._id;
+      let overallQuality = room.overallQuality;
+      const average = Object.values(review.ratings).reduce((a, b) => {
+        return (a + b) / 2;
+      });
+      overallQuality = (overallQuality + average) / 2;
+      updateOverallQuality.call({ _id, overallQuality }, (error) => {
+        if (error) {
+          console.log("There was an error updating room overall quality", error);
+        }
+      });
+    }
     Reviews.insert(review);
   }
 });

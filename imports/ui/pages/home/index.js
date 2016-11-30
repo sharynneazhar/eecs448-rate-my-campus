@@ -3,10 +3,9 @@ import React, {
   PropTypes
 } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { createContainer } from 'meteor/react-meteor-data';
-
 import ui from '../../components';
 import { Buildings } from '../../../api/buildings/buildings.js';
+import { Rooms } from '../../../api/rooms/rooms.js';
 
 class Home extends Component {
   constructor(props) {
@@ -15,8 +14,9 @@ class Home extends Component {
       searchInput: '',
     };
     Meteor.subscribe('buildings');
+    Meteor.subscribe('rooms');
     this.handleInput = this.handleInput.bind(this);
-    this.findBuilding = this.findBuilding.bind(this);
+    this.search = this.search.bind(this);
   }
 
   handleInput(e) {
@@ -25,15 +25,31 @@ class Home extends Component {
     });
   }
 
-  findBuilding(e) {
+  search(e) {
     e.preventDefault();
-    let query = Buildings.find({
-      name: {
-        $regex: this.state.searchInput,
-        $options: 'i'
-      },
-    }).fetch();
-    let url = `/building/${query[0]._id}`;
+    const routeType = this.props.route.type;
+    let query = null;
+    let url = null;
+    switch (routeType) {
+      case 'building':
+        query = Buildings.find({
+          name: {
+            $regex: this.state.searchInput,
+            $options: 'i'
+          },
+        }).fetch();
+        url = `/building/${query[0]._id}`;
+        break;
+      case 'room':
+        query = Rooms.find({
+          roomNumber: {
+            $regex: this.state.searchInput,
+            $options: 'i'
+          },
+        }).fetch();
+        url = `/room/${query[0].facilityId}/${query[0]._id}`;
+        break;
+    }
     this.props.history.push(url);
   }
 
@@ -42,12 +58,12 @@ class Home extends Component {
       <div>
         <div className="find-section">
           <div className="find-section-title">
-            Find a Building
+            Find a {this.props.route.type}
           </div>
-          <form className="searchForm" onSubmit={this.findBuilding}>
+          <form className="searchForm" onSubmit={this.search}>
             <ui.SearchInput
               type="text"
-              placeholder="building name"
+              placeholder={`${this.props.route.type} name`}
               onChange={this.handleInput}
             />
             <ui.Button

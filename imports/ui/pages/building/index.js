@@ -94,7 +94,7 @@ class Building extends Component {
         {this.props.loading ? this.renderSpinner() : this.renderMap()}
         {this.renderOverallRatings()}
         <div className="container button-group">
-          <Link to="/classroomSearch">
+          <Link to="/search/room">
             <ui.Button
               style="btn-lavender btn btn-lg btn-rMargin"
               text="Find a Classroom"

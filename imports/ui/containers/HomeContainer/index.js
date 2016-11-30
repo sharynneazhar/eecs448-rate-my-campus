@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Buildings } from '../../../api/buildings/buildings.js';
 import { Reviews } from '../../../api/reviews/reviews.js';
 import Home from '../../pages/home';
 

@@ -1,8 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { Buildings } from '../../api/buildings/buildings.js';
 import { Reviews } from '../../api/reviews/reviews.js';
+import { Rooms } from '../../api/rooms/rooms.js';
 import { addBuilding } from '../../api/buildings/methods.js';
 import { addReview } from '../../api/reviews/methods.js';
+import { addRoom } from '../../api/rooms/methods.js';
 
 // if the database is empty on server start, create some sample data.
 Meteor.startup(() => {
@@ -55,8 +57,34 @@ Meteor.startup(() => {
     });
   }
 
+  const buildingId = Buildings.findOne()._id;
+  if (Rooms.find().count() === 0) {
+    const rooms = [
+      {
+        roomNumber: 'G415',
+        facilityId: buildingId,
+        description: 'A pretty dank classroom.',
+        overallQuality: 4.0,
+      },
+      {
+        roomNumber: '1420',
+        facilityId: buildingId,
+        description: 'A pretty small classroom.',
+        overallQuality: 3.0,
+      }
+    ];
+
+    rooms.forEach((room) => {
+      addRoom.call(room, (error) => {
+        if (error) {
+          console.log("There was an error inserting mock room data: ", error);
+        }
+      });
+    });
+  }
+
+  const roomId = Rooms.findOne()._id;
   if (Reviews.find().count() === 0) {
-    const buildingId = Buildings.findOne()._id;
     const reviews = [
       {
         type: 'building',
@@ -105,6 +133,22 @@ Meteor.startup(() => {
           accessibility: 3.0
         },
         comments: 'Hello, is it me you\'re looking foooooor.'
+      },
+      {
+        type: 'room',
+        facilityId: roomId,
+        dateReviewed: new Date(),
+        ratings: {
+          outlets: 4.8,
+          technology: 4.0,
+          seating: 2.5,
+          desks: 2.2,
+          lighting: 4.6,
+          visibility: 3.2,
+          audibility: 2.5,
+          cleanliness: 3.0
+        },
+        comments: 'Hello, this is dope.'
       },
     ];
 

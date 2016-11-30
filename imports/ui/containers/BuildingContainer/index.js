@@ -10,7 +10,7 @@ export default BuildingContainer = createContainer(({ params }) => {
   const rHandle = Meteor.subscribe('reviews');
   const loading = !bHandle.ready() || !rHandle.ready();
   const building = Buildings.findOne({ _id: buildingId });
-  const reviews = Reviews.find({ facilityId: buildingId }).fetch();
+  const reviews = Reviews.find({ type: 'building', facilityId: buildingId }).fetch();
   return {
     loading,
     building,

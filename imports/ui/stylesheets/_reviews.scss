@@ -20,6 +20,10 @@
 }
 
 @media (max-width: 962px) {
+  .container {
+    width: 90%;
+  }
+
   .review-inner,
   .review-date {
     font-size: 12px;

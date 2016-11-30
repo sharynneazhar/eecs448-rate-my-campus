@@ -27,7 +27,7 @@ export default class HelpNav extends Component {
           </Link>
         </li>
         <li>
-          <Link to="/help/FAQ" className="help-sidebar-link">
+          <Link to="/help/faq" className="help-sidebar-link">
             FAQ
           </Link>
         </li>

@@ -3,11 +3,8 @@ import React, {
   PropTypes
 } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { createContainer } from 'meteor/react-meteor-data';
 import { Link } from 'react-router';
-
 import ui from '../../components';
-import { Buildings } from '../../../api/buildings/buildings.js';
 
 class Help extends Component {
 
@@ -44,7 +41,7 @@ class Help extends Component {
               </Link>
             </div>
             <div className="help-nav-item">
-              <Link to="/help/FAQ">
+              <Link to="/help/faq">
                 <ui.Button
                   style="btn-lavender btn btn-lg"
                   text="FAQ"
