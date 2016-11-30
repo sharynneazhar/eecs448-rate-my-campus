@@ -17,9 +17,11 @@ class Home extends Component {
     };
     Meteor.subscribe('buildings');
     Meteor.subscribe('rooms');
+    this.renderError = this.renderError.bind(this);
     this.renderRecentReviews = this.renderRecentReviews.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.search = this.search.bind(this);
+    this.isEmpty = this.isEmpty.bind(this);
   }
 
   handleInput(e) {
@@ -28,13 +30,17 @@ class Home extends Component {
     });
   }
 
+  isEmpty() {
+    return this.state.searchInput.length <= 0;
+  }
+
   search(e) {
     e.preventDefault();
     let query = null;
     let url = null;
 
-    if (this.state.searchInput.length <= 0) {
-      alert('Invalid input');
+    if (this.isEmpty()) {
+      this.setState({ showError: true, });
       return null;
     }
 
@@ -67,8 +73,18 @@ class Home extends Component {
         <div key={idx}>- {review.comments}</div>
       );
     });
-
     return <div>{reviews}</div>;
+  }
+
+  renderError() {
+    if (this.state.showError) {
+      return (
+        <div className="error-container">
+          <div className="error-text">Please enter a building name.</div>
+        </div>
+      );
+    }
+    return null;
   }
 
   render() {
@@ -78,6 +94,7 @@ class Home extends Component {
           <div className="find-section-title">
             Find a {this.props.route.type}
           </div>
+          {this.renderError()}
           <form className="searchForm" onSubmit={this.search}>
             <ui.SearchInput
               type="text"
