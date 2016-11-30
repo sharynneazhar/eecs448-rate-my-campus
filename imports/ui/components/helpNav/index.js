@@ -4,10 +4,6 @@ import React, {
 import { Link, } from 'react-router';
 
 export default class HelpNav extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <ul>

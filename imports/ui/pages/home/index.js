@@ -3,6 +3,7 @@ import React, {
   PropTypes
 } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { browserHistory } from 'react-router'
 import ui from '../../components';
 import { Buildings } from '../../../api/buildings/buildings.js';
 import { Rooms } from '../../../api/rooms/rooms.js';
@@ -11,10 +12,12 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      routeType: this.props.route.type || 'building',
       searchInput: '',
     };
     Meteor.subscribe('buildings');
     Meteor.subscribe('rooms');
+    this.renderRecentReviews = this.renderRecentReviews.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.search = this.search.bind(this);
   }
@@ -27,10 +30,15 @@ class Home extends Component {
 
   search(e) {
     e.preventDefault();
-    const routeType = this.props.route.type;
     let query = null;
     let url = null;
-    switch (routeType) {
+
+    if (this.state.searchInput.length <= 0) {
+      alert('Invalid input');
+      return null;
+    }
+
+    switch (this.state.routeType) {
       case 'building':
         query = Buildings.find({
           name: {
@@ -50,7 +58,17 @@ class Home extends Component {
         url = `/room/${query[0].facilityId}/${query[0]._id}`;
         break;
     }
-    this.props.history.push(url);
+    browserHistory.push(url);
+  }
+
+  renderRecentReviews() {
+    let reviews = this.props.reviews.map((review, idx) => {
+      return (
+        <div key={idx}>- {review.comments}</div>
+      );
+    });
+
+    return <div>{reviews}</div>;
   }
 
   render() {
@@ -74,7 +92,8 @@ class Home extends Component {
           </form>
         </div>
         <div className="recent-rating-section">
-          <div className="recent-rating-title">Recent Ratings</div>
+          <div className="recent-rating-title">Recent Reviews</div>
+          {this.renderRecentReviews()}
         </div>
       </div>
     );

@@ -4,10 +4,6 @@ import React, {
 } from 'react';
 
 export default class SearchInput extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <input

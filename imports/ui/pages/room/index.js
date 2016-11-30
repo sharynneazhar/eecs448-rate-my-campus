@@ -15,10 +15,13 @@ class Room extends Component {
             {this.props.room.roomNumber}
           </div>
           <div className="building-address">
-            <div className="building-address-top">
+            <div>
+              {this.props.building.name}
+            </div>
+            <div>
               {this.props.building.address.street}
             </div>
-            <div className="building-address-bottom">
+            <div>
               {this.props.building.address.city},&nbsp;
               {this.props.building.address.state}&nbsp;
               {this.props.building.address.zip}&nbsp;
