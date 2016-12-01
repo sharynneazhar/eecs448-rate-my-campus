@@ -20,3 +20,10 @@ $white:     #ffffff;
 
 $border: #c4c4c4;
 $bg:     #f2f2f2;
+
+
+// Override bootstrap colors
+.text-danger { color: $red; }
+.text-success { color: $green; }
+.text-warning { color: $yellow; }
+.text-info { color: $blue; }

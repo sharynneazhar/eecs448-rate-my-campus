@@ -79,9 +79,10 @@ class Home extends Component {
   renderError() {
     if (this.state.showError) {
       return (
-        <div className="error-container">
-          <div className="error-text">Please enter a building name.</div>
-        </div>
+        <ui.Alert
+          type="error"
+          text={`Please enter a ${this.props.route.type} name.`}
+        />
       );
     }
     return null;
@@ -90,11 +91,11 @@ class Home extends Component {
   render() {
     return (
       <div>
+        {this.renderError()}
         <div className="find-section">
           <div className="find-section-title">
             Find a {this.props.route.type}
           </div>
-          {this.renderError()}
           <form className="searchForm" onSubmit={this.search}>
             <ui.SearchInput
               type="text"
