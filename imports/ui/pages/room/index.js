@@ -66,7 +66,7 @@ class Room extends Component {
 
   renderReviews() {
     if (this.props.reviews.length === 0) {
-      return <div>Be first to review this building.</div>;
+      return (<div>Be first to review this building.</div>);
     }
 
     const reviews = this.props.reviews.map((review, index) =>
@@ -88,6 +88,19 @@ class Room extends Component {
     return <div>{reviews}</div>;
   }
 
+  renderModal() {
+    return (
+      <ui.Modal
+        type="Room"
+        id="RReview"
+      />
+    )
+  }
+
+  show(e) {
+    $("#RReview").modal("show");
+  }
+
   render() {
     return (
       <div>
@@ -97,6 +110,7 @@ class Room extends Component {
           <ui.Button
             style="btn-lavender btn btn-lg"
             text="Rate this Room"
+            onClick={this.show}
           />
         </div>
         <div className="row container center-block">
