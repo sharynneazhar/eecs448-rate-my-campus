@@ -88,11 +88,25 @@ class Building extends Component {
     return <div>{reviews}</div>;
   }
 
+  renderModal() {
+    return (
+      <ui.Modal
+        type="Building"
+        id="BReview"
+      />
+    )
+  }
+
+  show(e) {
+    $("#BReview").modal("show");
+  }
+
   render() {
     return (
       <div>
         {this.props.loading ? this.renderSpinner() : this.renderMap()}
         {this.renderOverallRatings()}
+        {this.renderModal()}
         <div className="container button-group">
           <Link to="/search/room">
             <ui.Button
@@ -103,6 +117,7 @@ class Building extends Component {
           <ui.Button
             style="btn-lavender btn btn-lg"
             text="Rate this Building"
+            onClick={this.show}
           />
         </div>
         <div className="row container center-block">

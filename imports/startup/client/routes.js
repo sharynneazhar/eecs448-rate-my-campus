@@ -20,9 +20,9 @@ export const renderRoutes = () => (
       <IndexRoute type="building" component={HomeContainer} />
       <Route name="buildingSearch" path="/search/building" type="building" component={HomeContainer} />
       <Route name="roomSearch" path="/search/room" type="room" component={HomeContainer} />
-      <Route name="searchResults" path="/search/results" component={SearchResults} />
       <Route name="building" path="/building/:buildingId" component={BuildingContainer} />
       <Route name="room" path="/room/:facilityId/:roomId" component={RoomContainer} />
+      <Route name="searchResults" path="/search/results" component={SearchResults} />
       <Route name="help" path="/help" component={Help} />
       <Route name="howTo" path="/help/how-to" component={HowTo} />
       <Route name="contact" path="/help/contact" component={Contact} />
