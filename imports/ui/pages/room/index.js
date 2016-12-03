@@ -106,6 +106,7 @@ class Room extends Component {
       <div>
         {this.props.loading ? this.renderSpinner() : this.renderMap()}
         {this.renderOverallRatings()}
+        {this.renderModal()}
         <div className="container button-group">
           <ui.Button
             style="btn-lavender btn btn-lg"
