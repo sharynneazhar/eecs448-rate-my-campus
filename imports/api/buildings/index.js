@@ -1,6 +1,8 @@
 import { Mongo } from 'meteor/mongo';
 import {
   addBuilding,
+  findBuildingByName,
+  findBuildingById,
   removeBuilding,
   updateBuilding,
   updateOverallQuality,
@@ -10,6 +12,8 @@ const Buildings = new Mongo.Collection("buildings");
 
 export {
   addBuilding,
+  findBuildingByName,
+  findBuildingById,
   removeBuilding,
   updateBuilding,
   updateOverallQuality,

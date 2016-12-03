@@ -37,3 +37,20 @@ export const updateRoomOverallQuality = new ValidatedMethod({
     });
   }
 });
+
+export const findRoomsInBuilding = (facilityId) => {
+  return Rooms.find({ facilityId, }).fethc();
+}
+
+export const findRoomByNumber = (roomNumber) => {
+  return Rooms.find({
+    roomNumber: {
+      $regex: roomNumber,
+      $options: 'i',
+    },
+  }).fetch();
+}
+
+export const findRoomById = (_id) => {
+  return Rooms.findOne({ _id, });
+}

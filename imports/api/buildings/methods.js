@@ -61,3 +61,16 @@ export const updateOverallQuality = new ValidatedMethod({
     });
   }
 });
+
+export const findBuildingByName = (name) => {
+  return Buildings.find({
+    name: {
+      $regex: name,
+      $options: 'i',
+    },
+  }).fetch();
+}
+
+export const findBuildingById = (_id) => {
+  return Buildings.findOne({ _id, });
+}

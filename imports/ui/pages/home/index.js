@@ -4,8 +4,8 @@ import React, {
 } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { browserHistory } from 'react-router'
-import Buildings from '../../../api/buildings';
-import Rooms from '../../../api/rooms';
+import Buildings, { findBuildingByName, } from '../../../api/buildings';
+import Rooms, { findRoomByNumber, } from '../../../api/rooms';
 import ui from '../../components';
 
 class Home extends Component {
@@ -40,11 +40,11 @@ class Home extends Component {
 
     switch (this.state.routeType) {
       case 'building':
-        query = Buildings.find({ name: queryOption, }).fetch();
+        query = findBuildingByName(this.state.searchInput);
         url = `/building/${query[0]._id}`;
         break;
       case 'room':
-        query = Rooms.find({ roomNumber: queryOption, }).fetch();
+        query = findRoomByNumber(this.state.searchInput);
         url = `/room/${query[0].facilityId}/${query[0]._id}`;
         break;
     }
