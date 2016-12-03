@@ -12,11 +12,9 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      routeType: this.props.route.type || 'building',
+      routeType: props.route.type || 'building',
       searchInput: '',
     };
-    Meteor.subscribe('buildings');
-    Meteor.subscribe('rooms');
     this.renderError = this.renderError.bind(this);
     this.renderRecentReviews = this.renderRecentReviews.bind(this);
     this.handleInput = this.handleInput.bind(this);

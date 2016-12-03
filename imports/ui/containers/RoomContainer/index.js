@@ -7,10 +7,10 @@ import Room from '../../pages/room';
 
 export default RoomContainer = createContainer(({ params }) => {
   const { facilityId, roomId } = params;
-  const bHandle = Meteor.subscribe('buildings');
-  const rHandle = Meteor.subscribe('reviews');
-  const roomHandle = Meteor.subscribe('rooms');
-  const loading = !bHandle.ready() || !rHandle.ready() || !roomHandle.ready();
+  const bSubscription = Meteor.subscribe('buildings');
+  const rSubscription = Meteor.subscribe('reviews');
+  const roomSubscription = Meteor.subscribe('rooms');
+  const loading = !bSubscription.ready() || !rSubscription.ready() || !roomSubscription.ready();
   const room = Rooms.findOne({ _id: roomId });
   const building = Buildings.findOne({ _id: facilityId });
   const reviews = Reviews.find({ type: 'room', facilityId: roomId }).fetch();

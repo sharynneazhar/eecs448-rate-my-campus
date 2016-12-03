@@ -6,9 +6,9 @@ import Building from '../../pages/building';
 
 export default BuildingContainer = createContainer(({ params }) => {
   const { buildingId } = params;
-  const bHandle = Meteor.subscribe('buildings');
-  const rHandle = Meteor.subscribe('reviews');
-  const loading = !bHandle.ready() || !rHandle.ready();
+  const bSubscription = Meteor.subscribe('buildings');
+  const rSubscription2 = Meteor.subscribe('reviews');
+  const loading = !bSubscription.ready() || !rSubscription2.ready();
   const building = Buildings.findOne({ _id: buildingId });
   const reviews = Reviews.find({ type: 'building', facilityId: buildingId }).fetch();
   return {
