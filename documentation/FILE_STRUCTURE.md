@@ -25,3 +25,5 @@ This is where the bulk of our work should be.
 `/imports/ui/pages` - this is pretty self explanatory.
 
 `/imports/ui/components` - holds all of the miscellaneous UI components in your application. For example, a button, a list, or a navigation bar.
+
+`/imports/ui/containers` - holds all the data containers for components

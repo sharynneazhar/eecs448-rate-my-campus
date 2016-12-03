@@ -11,6 +11,28 @@ The app's header bar containing the logo and log in / sign up links.
 ### Footer
 The app's footer containing copyright information and miscellaneous links.
 
+### Alert
+Generic alert bar
+
+```
+<Alert
+  type="error"
+  text="Please enter a valid name."
+/>
+```
+
+#### Props
+###### type
+The type of alert to display. Accepts one of the following:
+- error
+- success
+- info
+- warning
+
+###### text
+The display message
+
+
 ### Button
 Generic button component.
 

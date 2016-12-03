@@ -1,10 +1,8 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
-import { Reviews } from './reviews';
-import { Buildings } from '../buildings/buildings.js';
-import { updateOverallQuality } from '../buildings/methods.js';
-import { Rooms } from '../rooms/rooms.js';
-import { updateRoomOverallQuality } from '../rooms/methods.js';
+import Buildings, { updateOverallQuality, } from '../buildings';
+import Rooms, { updateRoomOverallQuality, } from '../rooms';
+import Reviews from '../reviews';
 
 export const addReview = new ValidatedMethod({
   name: 'Reviews.methods.insert',
@@ -43,7 +41,7 @@ export const addReview = new ValidatedMethod({
         return (a + b) / 2;
       });
       overallQuality = (overallQuality + average) / 2;
-      updateOverallQuality.call({ _id, overallQuality }, (error) => {
+      updateRoomOverallQuality.call({ _id, overallQuality }, (error) => {
         if (error) {
           console.log("There was an error updating room overall quality", error);
         }

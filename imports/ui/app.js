@@ -8,6 +8,9 @@ import ui from './components';
 class App extends Component {
   constructor(props) {
     super(props);
+    Meteor.subscribe('buildings');
+    Meteor.subscribe('rooms');
+    Meteor.subscribe('reviews');
   }
 
   render() {

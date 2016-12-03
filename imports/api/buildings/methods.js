@@ -1,6 +1,6 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
-import { Buildings } from './buildings';
+import Buildings from '../buildings';
 
 export const addBuilding = new ValidatedMethod({
   name: 'Buildings.methods.insert',
@@ -61,3 +61,16 @@ export const updateOverallQuality = new ValidatedMethod({
     });
   }
 });
+
+export const findBuildingByName = (name) => {
+  return Buildings.find({
+    name: {
+      $regex: name,
+      $options: 'i',
+    },
+  }).fetch();
+}
+
+export const findBuildingById = (_id) => {
+  return Buildings.findOne({ _id, });
+}

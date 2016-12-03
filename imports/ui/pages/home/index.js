@@ -4,39 +4,33 @@ import React, {
 } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { browserHistory } from 'react-router'
+import Buildings, { findBuildingByName, } from '../../../api/buildings';
+import Rooms, { findRoomByNumber, } from '../../../api/rooms';
 import ui from '../../components';
-import { Buildings } from '../../../api/buildings/buildings.js';
-import { Rooms } from '../../../api/rooms/rooms.js';
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      routeType: this.props.route.type || 'building',
+      routeType: props.route.type || 'building',
       searchInput: '',
     };
-    Meteor.subscribe('buildings');
-    Meteor.subscribe('rooms');
-    this.renderError = this.renderError.bind(this);
-    this.renderRecentReviews = this.renderRecentReviews.bind(this);
-    this.handleInput = this.handleInput.bind(this);
-    this.search = this.search.bind(this);
-    this.isEmpty = this.isEmpty.bind(this);
   }
 
-  handleInput(e) {
+  handleInput = (e) => {
     this.setState({
       searchInput: e.target.value,
     });
   }
 
-  isEmpty() {
+  isEmpty = () => {
     return this.state.searchInput.length <= 0;
   }
 
-  search(e) {
+  search = (e) => {
     e.preventDefault();
     let query = null;
+    let queryOption = { $regex: this.state.searchInput, $options: 'i', };
     let url = null;
 
     if (this.isEmpty()) {
@@ -46,28 +40,18 @@ class Home extends Component {
 
     switch (this.state.routeType) {
       case 'building':
-        query = Buildings.find({
-          name: {
-            $regex: this.state.searchInput,
-            $options: 'i'
-          },
-        }).fetch();
+        query = findBuildingByName(this.state.searchInput);
         url = `/building/${query[0]._id}`;
         break;
       case 'room':
-        query = Rooms.find({
-          roomNumber: {
-            $regex: this.state.searchInput,
-            $options: 'i'
-          },
-        }).fetch();
+        query = findRoomByNumber(this.state.searchInput);
         url = `/room/${query[0].facilityId}/${query[0]._id}`;
         break;
     }
     browserHistory.push(url);
   }
 
-  renderRecentReviews() {
+  renderRecentReviews = () => {
     let reviews = this.props.reviews.map((review, idx) => {
       return (
         <div key={idx}>- {review.comments}</div>
@@ -76,12 +60,13 @@ class Home extends Component {
     return <div>{reviews}</div>;
   }
 
-  renderError() {
+  renderError = () => {
     if (this.state.showError) {
       return (
-        <div className="error-container">
-          <div className="error-text">Please enter a building name.</div>
-        </div>
+        <ui.Alert
+          type="error"
+          text={`Please enter a ${this.props.route.type} name.`}
+        />
       );
     }
     return null;
@@ -90,11 +75,11 @@ class Home extends Component {
   render() {
     return (
       <div>
+        {this.renderError()}
         <div className="find-section">
           <div className="find-section-title">
             Find a {this.props.route.type}
           </div>
-          {this.renderError()}
           <form className="searchForm" onSubmit={this.search}>
             <ui.SearchInput
               type="text"
