@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Buildings } from '../../../api/buildings/buildings.js';
-import { Reviews } from '../../../api/reviews/reviews.js';
-import { Rooms } from '../../../api/rooms/rooms.js';
+import Buildings from '../../../api/buildings';
+import Reviews from '../../../api/reviews';
+import Rooms from '../../../api/rooms';
 import Room from '../../pages/room';
 
 export default RoomContainer = createContainer(({ params }) => {

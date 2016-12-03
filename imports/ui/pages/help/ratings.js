@@ -5,9 +5,7 @@ import React, {
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Link } from 'react-router';
-
 import ui from '../../components';
-import { Buildings } from '../../../api/buildings/buildings.js';
 
 class Ratings extends Component {
 

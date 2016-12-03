@@ -1,10 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import { Buildings } from '../../api/buildings/buildings.js';
-import { Reviews } from '../../api/reviews/reviews.js';
-import { Rooms } from '../../api/rooms/rooms.js';
-import { addBuilding } from '../../api/buildings/methods.js';
-import { addReview } from '../../api/reviews/methods.js';
-import { addRoom } from '../../api/rooms/methods.js';
+import Buildings, { addBuilding, } from '../../api/buildings';
+import Rooms, { addRoom, } from '../../api/rooms';
+import Reviews, { addReview } from '../../api/reviews';
 
 // if the database is empty on server start, create some sample data.
 Meteor.startup(() => {

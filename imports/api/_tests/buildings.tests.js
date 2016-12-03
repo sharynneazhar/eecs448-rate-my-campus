@@ -4,12 +4,11 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { assert } from 'meteor/practicalmeteor:chai';
 import { MockBuildings } from './mockData.js';
-import { Buildings } from '../buildings/buildings.js';
-import {
+import Buildings, {
   addBuilding,
   removeBuilding,
   updateBuilding,
-} from '../buildings/methods.js';
+} from '../buildings';
 
 if (Meteor.isServer) {
   describe('Buildings', () => {

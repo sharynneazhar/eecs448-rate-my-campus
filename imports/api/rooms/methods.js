@@ -1,6 +1,6 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
-import { Rooms } from './rooms';
+import Rooms from '../rooms';
 
 export const addRoom = new ValidatedMethod({
   name: 'Rooms.methods.insert',

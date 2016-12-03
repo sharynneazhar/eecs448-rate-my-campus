@@ -8,7 +8,8 @@ export const MockBuildings = [
       city: 'Lawrence',
       state: 'KS',
       zip: '66045',
-    }
+    },
+    overallQuality: 4.0,
   },
   {
     name: 'Learned Hall',
@@ -20,6 +21,7 @@ export const MockBuildings = [
       state: 'KS',
       zip: '66045',
     },
+    overallQuality: 4.0,
   },
   {
     name: 'Malott Hall',
@@ -31,5 +33,6 @@ export const MockBuildings = [
       state: 'KS',
       zip: '66045',
     },
+    overallQuality: 4.0,
   },
 ];

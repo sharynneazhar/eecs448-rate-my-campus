@@ -4,9 +4,9 @@ import React, {
 } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { browserHistory } from 'react-router'
+import Buildings from '../../../api/buildings';
+import Rooms from '../../../api/rooms';
 import ui from '../../components';
-import { Buildings } from '../../../api/buildings/buildings.js';
-import { Rooms } from '../../../api/rooms/rooms.js';
 
 class Home extends Component {
   constructor(props) {
@@ -15,26 +15,22 @@ class Home extends Component {
       routeType: props.route.type || 'building',
       searchInput: '',
     };
-    this.renderError = this.renderError.bind(this);
-    this.renderRecentReviews = this.renderRecentReviews.bind(this);
-    this.handleInput = this.handleInput.bind(this);
-    this.search = this.search.bind(this);
-    this.isEmpty = this.isEmpty.bind(this);
   }
 
-  handleInput(e) {
+  handleInput = (e) => {
     this.setState({
       searchInput: e.target.value,
     });
   }
 
-  isEmpty() {
+  isEmpty = () => {
     return this.state.searchInput.length <= 0;
   }
 
-  search(e) {
+  search = (e) => {
     e.preventDefault();
     let query = null;
+    let queryOption = { $regex: this.state.searchInput, $options: 'i', };
     let url = null;
 
     if (this.isEmpty()) {
@@ -44,28 +40,18 @@ class Home extends Component {
 
     switch (this.state.routeType) {
       case 'building':
-        query = Buildings.find({
-          name: {
-            $regex: this.state.searchInput,
-            $options: 'i'
-          },
-        }).fetch();
+        query = Buildings.find({ name: queryOption, }).fetch();
         url = `/building/${query[0]._id}`;
         break;
       case 'room':
-        query = Rooms.find({
-          roomNumber: {
-            $regex: this.state.searchInput,
-            $options: 'i'
-          },
-        }).fetch();
+        query = Rooms.find({ roomNumber: queryOption, }).fetch();
         url = `/room/${query[0].facilityId}/${query[0]._id}`;
         break;
     }
     browserHistory.push(url);
   }
 
-  renderRecentReviews() {
+  renderRecentReviews = () => {
     let reviews = this.props.reviews.map((review, idx) => {
       return (
         <div key={idx}>- {review.comments}</div>
@@ -74,7 +60,7 @@ class Home extends Component {
     return <div>{reviews}</div>;
   }
 
-  renderError() {
+  renderError = () => {
     if (this.state.showError) {
       return (
         <ui.Alert

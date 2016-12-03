@@ -9,7 +9,7 @@ Let’s use the `HomeContainer` as an example.
 ```
 import { Meteor } from 'meteor/meteor’;
 import { createContainer } from 'meteor/react-meteor-data’;
-import { Reviews } from '../../../api/reviews/reviews.js';
+import Reviews from '../../../api/reviews';
 import Home from '../../pages/home';
 ```
 
