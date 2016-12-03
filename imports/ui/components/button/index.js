@@ -2,6 +2,7 @@ import React, {
   Component,
   PropTypes
 } from 'react';
+import BS from 'bootstrap';
 
 export default class Button extends Component {
   constructor(props) {

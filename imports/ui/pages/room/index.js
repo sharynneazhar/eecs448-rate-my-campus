@@ -88,15 +88,30 @@ class Room extends Component {
     return <div>{reviews}</div>;
   }
 
+  renderModal() {
+    return (
+      <ui.Modal
+        type="Room"
+        id="RReview"
+      />
+    )
+  }
+
+  show(e) {
+    $("#RReview").modal("show");
+  }
+
   render() {
     return (
       <div>
         {this.props.loading ? this.renderSpinner() : this.renderMap()}
         {this.renderOverallRatings()}
+        {this.renderModal()}
         <div className="container button-group">
           <ui.Button
             style="btn-lavender btn btn-lg"
             text="Rate this Room"
+            onClick={this.show}
           />
         </div>
         <div className="row container center-block">

@@ -7,6 +7,8 @@ import ReactList from 'react-list';
 import ui from '../../components';
 import { Link } from 'react-router';
 import { moment } from 'meteor/momentjs:moment';
+import BS from 'bootstrap';
+import { JQuery } from 'jquery';
 
 class Building extends Component {
   renderMap() {
@@ -66,7 +68,7 @@ class Building extends Component {
 
   renderReviews() {
     if (this.props.reviews.length === 0) {
-      return <div>Be first to review this building.</div>;
+      return (<div>Be first to review this building.</div>);
     }
 
     const reviews = this.props.reviews.map((review, index) =>
@@ -88,11 +90,25 @@ class Building extends Component {
     return <div>{reviews}</div>;
   }
 
+  renderModal() {
+    return (
+      <ui.Modal
+        type="Building"
+        id="BReview"
+      />
+    )
+  }
+
+  show(e) {
+    $("#BReview").modal("show");
+  }
+
   render() {
     return (
       <div>
         {this.props.loading ? this.renderSpinner() : this.renderMap()}
         {this.renderOverallRatings()}
+        {this.renderModal()}
         <div className="container button-group">
           <Link to="/search/room">
             <ui.Button
@@ -103,6 +119,7 @@ class Building extends Component {
           <ui.Button
             style="btn-lavender btn btn-lg"
             text="Rate this Building"
+            onClick={this.show}
           />
         </div>
         <div className="row container center-block">

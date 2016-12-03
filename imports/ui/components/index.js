@@ -4,6 +4,7 @@ import Button from './button';
 import SearchInput from './searchInput';
 import RatingsList from './ratingsList';
 import HelpNav from './helpNav';
+import Modal from './modal';
 
 const components = {
   Button,
@@ -12,6 +13,7 @@ const components = {
   SearchInput,
   RatingsList,
   HelpNav,
+  Modal,
 };
 
 export default components;
