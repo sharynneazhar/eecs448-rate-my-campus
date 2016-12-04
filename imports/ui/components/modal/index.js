@@ -15,8 +15,36 @@ export default class Modal extends Component {
       return (
         <form method="post">
           <div className="form-group">
-            <label htmlFor="quality" className="control-label">Quality</label>
-            <input type="text" name="quality" />
+            <label htmlFor="internet" className="control-label">Internet</label>
+            <input type="text" name="internet" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="study-areas" className="control-label">Study Areas</label>
+            <input type="text" name="study-areas" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="parking" className="control-label">Parking</label>
+            <input type="text" name="parking" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="dining" className="control-label">Dining</label>
+            <input type="text" name="dining" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="restrooms" className="control-label">Restrooms</label>
+            <input type="text" name="restrooms" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="trash" className="control-label">Trash Maintenance</label>
+            <input type="text" name="trash" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="vending" className="control-label">Vending Machines</label>
+            <input type="text" name="vending" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="access" className="control-label">Accessibility</label>
+            <input type="text" name="access" />
           </div>
           <div className="form-group form-inline">
             <label htmlFor="graduation" className="control-label">Graduation Date</label>
@@ -38,8 +66,36 @@ export default class Modal extends Component {
       return (
         <form method="post">
           <div className="form-group">
-            <label htmlFor="quality" className="control-label">Quality</label>
-            <input type="text" name="quality" />
+            <label htmlFor="outlets" className="control-label">Outlets</label>
+            <input type="text" name="outlets" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="tech" className="control-label">Technology</label>
+            <input type="text" name="tech" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="seating" className="control-label">Seating</label>
+            <input type="text" name="seating" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="desks" className="control-label">Desks</label>
+            <input type="text" name="desks" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="lighting" className="control-label">Lighting</label>
+            <input type="text" name="lighting" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="visibility" className="control-label">Visibility</label>
+            <input type="text" name="visibility" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="audibility" className="control-label">Audibility</label>
+            <input type="text" name="audibility" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="clean" className="control-label">Cleanliness</label>
+            <input type="text" name="clean" />
           </div>
           <div className="form-group form-inline">
             <label htmlFor="graduation" className="control-label">Graduation Date</label>
