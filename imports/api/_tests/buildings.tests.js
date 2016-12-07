@@ -3,12 +3,40 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { assert } from 'meteor/practicalmeteor:chai';
-import { MockBuildings } from './mockData.js';
+
 import Buildings, {
   addBuilding,
   removeBuilding,
-  updateBuilding,
+  updateBuildingAverages,
+  findBuildingByName,
+  findBuildingById,
 } from '../buildings';
+
+const MockBuildings = [
+  {
+    type: 'building',
+    name: 'Learned Engineering Expansion Phase 2 (LEEP2)',
+    description: 'Engineeringg building',
+    address: {
+      full: '1536 W. 15th St., Lawrence, KS 66045',
+      street: '1536 W. 15th St.',
+      city: 'Lawrence',
+      state: 'KS',
+      zip: '66045',
+    },
+    overallQuality: 4.0,
+    averageRatings: {
+      internet: 4.0,
+      studyAreas: 4.0,
+      parking: 4.0,
+      dining: 4.0,
+      restrooms: 4.0,
+      trashMaintenance: 4.0,
+      vendingMachines: 4.0,
+      accessibility: 4.0
+    },
+  },
+];
 
 if (Meteor.isServer) {
   describe('Buildings', () => {
@@ -20,10 +48,34 @@ if (Meteor.isServer) {
 
       it('can add a new building', () => {
         const size = MockBuildings.length;
-        MockBuildings.forEach((building) => {
+        MockBuildings.map((building) => {
           addBuilding.call(building);
         });
         assert.equal(Buildings.find().count(), size);
+      });
+
+      it('can find a valid building by ID', () => {
+        const randomId = Buildings.findOne()._id;
+        const building = findBuildingById(randomId);
+        assert.isDefined(building);
+      });
+
+      it('should fail to find an invalid building ID', () => {
+        const randomId = 'someInvalidId'
+        const building = findBuildingById(randomId);
+        assert.isUndefined(building);
+      });
+
+      it('can find a valid building by name', () => {
+        const randomName = Buildings.findOne().name;
+        const building = findBuildingByName(randomName);
+        assert.isArray(building);
+      });
+
+      it('should fail to find an invalid building name', () => {
+        const randomName = 'someInvalidName'
+        const building = findBuildingByName(randomName);
+        assert.isArray(building);
       });
 
       it('can remove a building', () => {
@@ -33,14 +85,6 @@ if (Meteor.isServer) {
         assert.equal(Buildings.find().count(), size - 1);
       });
 
-      // it('can update a building', () => {
-      //   const buildingId = Buildings.find().fetch()[0]._id;
-      //   const oldData = Buildings.findOne(buildingId).description;
-      //   updateBuilding.call(buildingId, { description: "updated description", });
-      //   const newData = Buildings.findOne(buildingId).description;
-      //   console.log(Buildings.findOne(buildingId));
-      //   assert.notEqual(oldData, newData);
-      // });
     });
   });
 }

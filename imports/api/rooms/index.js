@@ -1,22 +1,22 @@
 import { Mongo } from 'meteor/mongo';
 import {
   addRoom,
+  removeRoom,
+  updateRoomAverages,
   findRoomById,
   findRoomByNumber,
   findRoomsInBuilding,
-  removeRoom,
-  updateRoomAverages,
 } from './methods.js';
 
 const Rooms = new Mongo.Collection("rooms");
 
 export {
   addRoom,
+  removeRoom,
+  updateRoomAverages,
   findRoomById,
   findRoomByNumber,
   findRoomsInBuilding,
-  removeRoom,
-  updateRoomAverages,
 };
 
 export default Rooms;
