@@ -29,24 +29,11 @@ class Home extends Component {
 
   search = (e) => {
     e.preventDefault();
-
     if (this.isEmpty()) {
       this.setState({ showError: true, });
       return null;
     }
-
-    let url = null;
-    switch (this.state.routeType) {
-      case 'building':
-        let building = findBuildingByName(this.state.searchInput);
-        url = `/building/${building[0]._id}`;
-        break;
-      case 'room':
-        let room = findRoomByNumber(this.state.searchInput);
-        url = `/room/${room[0].facilityId}/${room[0]._id}`;
-        break;
-    }
-    browserHistory.push(url);
+    browserHistory.push(`search/${this.state.searchInput}`);
   }
 
   renderRecentReviews = () => {

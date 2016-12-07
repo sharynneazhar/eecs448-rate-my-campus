@@ -5,7 +5,8 @@ import Rooms from '../rooms';
 export const addRoom = new ValidatedMethod({
   name: 'Rooms.methods.insert',
   validate: new SimpleSchema({
-    roomNumber: { type: String },
+    type: { type: String },
+    name: { type: String },
     facilityId: { type: String },
     description: { type: String },
     overallQuality: { type: Number, decimal: true },
@@ -47,10 +48,10 @@ export const findRoomsInBuilding = (facilityId) => {
   return Rooms.find({ facilityId, }).fethc();
 }
 
-export const findRoomByNumber = (roomNumber) => {
+export const findRoomByNumber = (name) => {
   return Rooms.find({
-    roomNumber: {
-      $regex: roomNumber,
+    name: {
+      $regex: name,
       $options: 'i',
     },
   }).fetch();

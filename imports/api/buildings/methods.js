@@ -5,6 +5,7 @@ import Buildings from '../buildings';
 export const addBuilding = new ValidatedMethod({
   name: 'Buildings.methods.insert',
   validate: new SimpleSchema({
+    type: { type: String },
     name: { type: String },
     description: { type: String },
     address: { type: Object },

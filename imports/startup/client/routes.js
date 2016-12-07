@@ -13,6 +13,7 @@ import Ratings from '../../ui/pages/help/ratings.js';
 import HomeContainer from '../../ui/containers/HomeContainer';
 import BuildingContainer from '../../ui/containers/BuildingContainer';
 import RoomContainer from '../../ui/containers/RoomContainer';
+import SearchResultsContainer from '../../ui/containers/SearchResultsContainer';
 
 export const renderRoutes = () => (
   <Router history={browserHistory}>
@@ -22,7 +23,7 @@ export const renderRoutes = () => (
       <Route name="roomSearch" path="/search/room" type="room" component={HomeContainer} />
       <Route name="building" path="/building/:buildingId" component={BuildingContainer} />
       <Route name="room" path="/room/:facilityId/:roomId" component={RoomContainer} />
-      <Route name="searchResults" path="/search/results" component={SearchResults} />
+      <Route name="searchResults" path="/search/:query" component={SearchResultsContainer} />
       <Route name="help" path="/help" component={Help} />
       <Route name="howTo" path="/help/how-to" component={HowTo} />
       <Route name="contact" path="/help/contact" component={Contact} />

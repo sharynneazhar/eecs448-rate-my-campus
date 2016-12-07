@@ -11,7 +11,7 @@ class Room extends Component {
       <div>
         <div className="container building-details">
           <div className="building-name">
-            {this.props.room.roomNumber}
+            {this.props.room.name}
           </div>
           <div className="building-address">
             <div>

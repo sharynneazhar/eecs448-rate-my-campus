@@ -3,73 +3,57 @@ import React, {
   PropTypes
 } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { browserHistory } from 'react-router'
-import Buildings, { findBuildingByName, } from '../../../api/buildings';
-import Rooms, { findRoomByNumber, } from '../../../api/rooms';
+import { browserHistory, Link, } from 'react-router'
+import { findBuildingById, } from '../../../api/buildings';
 import ui from '../../components';
 
 class SearchResults extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-     searchInput: '',
-    };
-    Meteor.subscribe('buildings');
-    this.handleInput = this.handleInput.bind(this);
-    this.findBuilding = this.findBuilding.bind(this);
+  getUrl = (result) => {
+    if (result.type === 'building') {
+      return `building/${result._id}`;
+    } else if (result.type === 'room') {
+      return `room/${result.facilityId}/${result._id}`;
+    }
+    return null;
   }
 
-  handleInput(e) {
-    this.setState({
-     searchInput: e.target.value,
-    });
+  getDetail = (result) => {
+    if (result.type === 'building') {
+      return result.address.full;
+    } else if (result.type === 'room') {
+      return findBuildingById(result.facilityId).name;
+    }
+    return null;
   }
 
-  findBuilding(e) {
-    e.preventDefault();
-    let query = Buildings.find({
-     name: {
-        $regex: this.state.searchInput,
-        $options: 'i'
-     },
-    }).fetch();
-    let url = `/building/${query[0].name}`;
-    this.props.history.push(url);
+  renderResults = () => {
+    const results = this.props.results.map((result, idx) =>
+      <Link key={idx} to={this.getUrl(result)} className="">
+        <div className="">{result.name}</div>
+        <div className="">{this.getDetail(result)}</div>
+      </Link>
+    );
+    return this.props.loading ? <ui.LoadAnimation /> : results;
   }
 
   render() {
-       return (
-        <div>
-          <div className="find-section">
-            <div className="find-section-title">
-              Find a building
+    return (
+      <div className="search-results-list">
+        <div className="theResults">
+          <div className="results-heading">
+            <div className="search-results-title">
+              Search Results
             </div>
-            <form className="searchForm" onSubmit={this.search}>
-              <ui.SearchInput
-                type="text"
-                placeholder="building name"
-                onChange={this.handleInput}
-              />
-              <ui.Button
-                style="btn-lavender btn btn-xl"
-                type="submit"
-                text="Search"
-              />
-            </form>
+            <div className="search-results-found">
+              Found {this.props.results.length} results
+            </div>
           </div>
-          <div className="search-results-list">
-               <div className="theResults">
-                    <div className="results-heading">
-                         <div className="search-results-title">Search Results</div>
-                         <div className="search-results-found">Showing 1-3 of 3 Found</div>
-                    </div>
-                    <div className="actual-results">
-
-                    </div>
-               </div>
+          <div className="actual-results">
+            {this.renderResults()}
           </div>
         </div>
-      );
+      </div>
+    );
   }
 }
 
