@@ -5,7 +5,7 @@ import {
   findBuildingById,
   removeBuilding,
   updateBuilding,
-  updateOverallQuality,
+  updateBuildingAverages,
 } from './methods.js';
 
 const Buildings = new Mongo.Collection("buildings");
@@ -16,7 +16,7 @@ export {
   findBuildingById,
   removeBuilding,
   updateBuilding,
-  updateOverallQuality,
+  updateBuildingAverages,
 };
 
 export default Buildings;

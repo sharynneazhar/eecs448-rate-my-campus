@@ -18,6 +18,16 @@ Meteor.startup(() => {
           zip: '66045',
         },
         overallQuality: 4.0,
+        averageRatings: {
+          internet: 4.0,
+          studyAreas: 4.0,
+          parking: 4.0,
+          dining: 4.0,
+          restrooms: 4.0,
+          trashMaintenance: 4.0,
+          vendingMachines: 4.0,
+          accessibility: 4.0
+        },
       },
       {
         name: 'Learned Hall',
@@ -30,6 +40,16 @@ Meteor.startup(() => {
           zip: '66045',
         },
         overallQuality: 4.0,
+        averageRatings: {
+          internet: 4.0,
+          studyAreas: 4.0,
+          parking: 4.0,
+          dining: 4.0,
+          restrooms: 4.0,
+          trashMaintenance: 4.0,
+          vendingMachines: 4.0,
+          accessibility: 4.0
+        },
       },
       {
         name: 'Malott Hall',
@@ -42,6 +62,16 @@ Meteor.startup(() => {
           zip: '66045',
         },
         overallQuality: 4.0,
+        averageRatings: {
+          internet: 4.0,
+          studyAreas: 4.0,
+          parking: 4.0,
+          dining: 4.0,
+          restrooms: 4.0,
+          trashMaintenance: 4.0,
+          vendingMachines: 4.0,
+          accessibility: 4.0
+        },
       },
     ];
 
@@ -62,12 +92,32 @@ Meteor.startup(() => {
         facilityId: buildingId,
         description: 'A pretty dank classroom.',
         overallQuality: 4.0,
+        averageRatings: {
+          outlets: 4.0,
+          technology: 4.0,
+          seating: 4.0,
+          desks: 4.0,
+          lighting: 4.0,
+          visibility: 4.0,
+          audibility: 4.0,
+          cleanliness: 4.0
+        },
       },
       {
         roomNumber: '1420',
         facilityId: buildingId,
         description: 'A pretty small classroom.',
         overallQuality: 3.0,
+        averageRatings: {
+          outlets: 4.0,
+          technology: 4.0,
+          seating: 4.0,
+          desks: 4.0,
+          lighting: 4.0,
+          visibility: 4.0,
+          audibility: 4.0,
+          cleanliness: 4.0
+        },
       }
     ];
 

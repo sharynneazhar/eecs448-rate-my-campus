@@ -1,8 +1,58 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
-import Buildings, { updateOverallQuality, } from '../buildings';
-import Rooms, { updateRoomOverallQuality, } from '../rooms';
+import Buildings, { updateBuildingAverages, } from '../buildings';
+import Rooms, { updateRoomAverages, } from '../rooms';
 import Reviews from '../reviews';
+
+const getFacilityConfig = (type, _id) => {
+  // find the facility according to type
+  if (type === 'building') {
+    return {
+      facility: Buildings.findOne({ _id, }),
+      updateMethod: updateBuildingAverages,
+    };
+  } else if (type === 'room') {
+    return {
+      facility: Rooms.findOne({ _id, }),
+      updateMethod: updateRoomAverages,
+    };
+  }
+  return null;
+}
+
+const updateAverages = (review) => {
+  // find the facility according to type
+  const {
+    facility,
+    updateMethod,
+  } = getFacilityConfig(review.type, review.facilityId);
+
+  const _id = facility._id;
+
+  // calculate the overall of the newly submitted review
+  const oldOverall = facility.overallQuality;
+  const newOverall = Object.values(review.ratings).reduce((a, b) => {
+    return (a + b) / 2;
+  });
+
+  // calculate the new overall quality
+  const overallQuality = (oldOverall + newOverall) / 2;
+
+  // get each rating of the newly submitted review
+  const averageRatings = facility.averageRatings;
+
+  // calculate the new average ratings
+  Object.keys(averageRatings).map((key) => {
+    averageRatings[key] = (averageRatings[key] + review.ratings[key]) / 2;
+  });
+
+  // update the new overall quality in the database
+  updateMethod.call({ _id, overallQuality, averageRatings }, (error) => {
+    if (error) {
+      console.error(`There was an error updating ${review.type} averages`, error);
+    }
+  });
+}
 
 export const addReview = new ValidatedMethod({
   name: 'Reviews.methods.insert',
@@ -20,33 +70,7 @@ export const addReview = new ValidatedMethod({
     comments: { type: String }
   }).validator(),
   run(review) {
-    if (review.type === 'building') {
-      const building = Buildings.findOne({ _id: review.facilityId, });
-      const _id = building._id;
-      let overallQuality = building.overallQuality;
-      const average = Object.values(review.ratings).reduce((a, b) => {
-        return (a + b) / 2;
-      });
-      overallQuality = (overallQuality + average) / 2;
-      updateOverallQuality.call({ _id, overallQuality }, (error) => {
-        if (error) {
-          console.log("There was an error updating building overall quality", error);
-        }
-      });
-    } else if (review.type === 'room') {
-      const room = Rooms.findOne({ _id: review.facilityId, });
-      const _id = room._id;
-      let overallQuality = room.overallQuality;
-      const average = Object.values(review.ratings).reduce((a, b) => {
-        return (a + b) / 2;
-      });
-      overallQuality = (overallQuality + average) / 2;
-      updateRoomOverallQuality.call({ _id, overallQuality }, (error) => {
-        if (error) {
-          console.log("There was an error updating room overall quality", error);
-        }
-      });
-    }
+    updateAverages(review);
     Reviews.insert(review);
   }
 });

@@ -2,14 +2,13 @@ import React, {
   Component,
   PropTypes
 } from 'react';
-import Spinner from 'react-spinkit';
 import ReactList from 'react-list';
 import ui from '../../components';
 import { Link } from 'react-router';
 import { moment } from 'meteor/momentjs:moment';
 
 class Building extends Component {
-  renderMap() {
+  renderMap = () => {
     let url = `https://maps.google.com?q=${this.props.building.address.full}`;
     return (
       <div>
@@ -33,7 +32,7 @@ class Building extends Component {
     );
   }
 
-  renderOverallRatings() {
+  renderOverallRatings = () => {
     if (this.props.reviews.length !== 0) {
       return (
         <div className="row container center-block overall-rating">
@@ -44,7 +43,7 @@ class Building extends Component {
             </div>
           </div>
           <div className="col-xs-7 col-xs-offset-1">
-            <ui.RatingsList parameters={this.props.reviews[0].ratings} />
+            <ui.RatingsList parameters={this.props.building.averageRatings} />
           </div>
         </div>
       );
@@ -52,19 +51,11 @@ class Building extends Component {
     return null;
   }
 
-  renderSpinner() {
-    return (
-      <div className="spinner-container">
-        <Spinner spinnerName="wandering-cubes" />
-      </div>
-    );
-  }
-
-  formatDate(date) {
+  formatDate = (date) => {
     return moment(date).format('MMM D, YYYY');
   }
 
-  renderReviews() {
+  renderReviews = () => {
     if (this.props.reviews.length === 0) {
       return (<div>Be first to review this building.</div>);
     }
@@ -88,7 +79,7 @@ class Building extends Component {
     return <div>{reviews}</div>;
   }
 
-  renderModal() {
+  renderModal = () => {
     return (
       <ui.Modal
         type="Building"
@@ -97,14 +88,14 @@ class Building extends Component {
     )
   }
 
-  show(e) {
+  show = (e) => {
     $("#BReview").modal("show");
   }
 
   render() {
     return (
       <div>
-        {this.props.loading ? this.renderSpinner() : this.renderMap()}
+        {this.props.loading ? <ui.LoadAnimation /> : this.renderMap()}
         {this.renderOverallRatings()}
         {this.renderModal()}
         <div className="container button-group">

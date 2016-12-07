@@ -13,29 +13,11 @@ export const addBuilding = new ValidatedMethod({
     "address.city": { type: String },
     "address.state": { type: String },
     "address.zip": { type: String },
-    "overallQuality": { type: Number, decimal: true },
+    overallQuality: { type: Number, decimal: true },
+    averageRatings: { type: Object, blackbox: true },
   }).validator(),
   run(building) {
     Buildings.insert(building);
-  }
-});
-
-export const updateBuilding = new ValidatedMethod({
-  name: 'Buildings.methods.update',
-  validate: new SimpleSchema({
-    _id: { type: String },
-    "name": { type: String, optional: true },
-    "description": { type: String, optional: true },
-    "address": { type: Object, optional: true },
-    "address.full": { type: String, optional: true },
-    "address.street": { type: String, optional: true },
-    "address.city": { type: String, optional: true },
-    "address.state": { type: String, optional: true },
-    "address.zip": { type: String, optional: true },
-    "overallQuality": { type: Number, optional: true, decimal: true },
-  }).validator(),
-  run(_id) {
-    // Buildings.update(_id);
   }
 });
 
@@ -49,15 +31,19 @@ export const removeBuilding = new ValidatedMethod({
   }
 });
 
-export const updateOverallQuality = new ValidatedMethod({
-  name: 'Buildings.methods.updateOverallQuality',
+export const updateBuildingAverages = new ValidatedMethod({
+  name: 'Buildings.methods.updateBuildingAverages',
   validate: new SimpleSchema({
     _id: { type: String },
     "overallQuality": { type: Number, decimal: true },
+    "averageRatings": { type: Object, blackbox: true },
   }).validator(),
-  run({ _id, overallQuality }) {
+  run({ _id, overallQuality, averageRatings }) {
     Buildings.update(_id, {
-      $set: { overallQuality: overallQuality }
+      $set: {
+        overallQuality: overallQuality,
+        averageRatings: averageRatings
+      }
     });
   }
 });
