@@ -8,7 +8,8 @@ export const addRoom = new ValidatedMethod({
     roomNumber: { type: String },
     facilityId: { type: String },
     description: { type: String },
-    "overallQuality": { type: Number, decimal: true },
+    overallQuality: { type: Number, decimal: true },
+    averageRatings: { type: Object, blackbox: true },
   }).validator(),
   run(room) {
     Rooms.insert(room);
@@ -25,15 +26,19 @@ export const removeRoom = new ValidatedMethod({
   }
 });
 
-export const updateRoomOverallQuality = new ValidatedMethod({
-  name: 'Rooms.methods.updateOverallQuality',
+export const updateRoomAverages = new ValidatedMethod({
+  name: 'Rooms.methods.updateRoomAverages',
   validate: new SimpleSchema({
     _id: { type: String },
     "overallQuality": { type: Number, decimal: true },
+    "averageRatings": { type: Object, blackbox: true },
   }).validator(),
-  run({ _id, overallQuality }) {
+  run({ _id, overallQuality, averageRatings }) {
     Rooms.update(_id, {
-      $set: { overallQuality: overallQuality }
+      $set: {
+        overallQuality: overallQuality,
+        averageRatings: averageRatings
+      }
     });
   }
 });

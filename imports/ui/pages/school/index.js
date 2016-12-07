@@ -2,11 +2,10 @@ import React, {
   Component,
   PropTypes
 } from 'react';
-import Spinner from 'react-spinkit';
 import ui from '../../components';
 
 class School extends Component {
-  renderBlock() {
+  renderBlock = () => {
     let url = `https://maps.google.com?q=${this.props.building.address.full}`;
     return (
       <div>
@@ -39,18 +38,10 @@ class School extends Component {
     );
   }
 
-  renderSpinner() {
-    return (
-      <div className="spinner-container">
-        <Spinner spinnerName="wandering-cubes" />
-      </div>
-    );
-  }
-
   render() {
     return (
       <div>
-        {this.props.loading ? this.renderSpinner() : this.renderBlock()}
+        {this.props.loading ? <ui.LoadAnimation /> : this.renderBlock()}
         <div className="row container center-block button-group">
           <div className="col-xs-3 col-xs-offset-6">
             <ui.Button

@@ -29,23 +29,21 @@ class Home extends Component {
 
   search = (e) => {
     e.preventDefault();
-    let query = null;
-    let queryOption = { $regex: this.state.searchInput, $options: 'i', };
-    let url = null;
 
     if (this.isEmpty()) {
       this.setState({ showError: true, });
       return null;
     }
 
+    let url = null;
     switch (this.state.routeType) {
       case 'building':
-        query = findBuildingByName(this.state.searchInput);
-        url = `/building/${query[0]._id}`;
+        let building = findBuildingByName(this.state.searchInput);
+        url = `/building/${building[0]._id}`;
         break;
       case 'room':
-        query = findRoomByNumber(this.state.searchInput);
-        url = `/room/${query[0].facilityId}/${query[0]._id}`;
+        let room = findRoomByNumber(this.state.searchInput);
+        url = `/room/${room[0].facilityId}/${room[0]._id}`;
         break;
     }
     browserHistory.push(url);
@@ -95,7 +93,7 @@ class Home extends Component {
         </div>
         <div className="recent-rating-section">
           <div className="recent-rating-title">Recent Reviews</div>
-          {this.renderRecentReviews()}
+          {this.props.loading ? <ui.LoadAnimation /> : this.renderRecentReviews()}
         </div>
       </div>
     );

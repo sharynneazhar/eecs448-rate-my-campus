@@ -5,7 +5,7 @@ import {
   findRoomByNumber,
   findRoomsInBuilding,
   removeRoom,
-  updateRoomOverallQuality,
+  updateRoomAverages,
 } from './methods.js';
 
 const Rooms = new Mongo.Collection("rooms");
@@ -16,7 +16,7 @@ export {
   findRoomByNumber,
   findRoomsInBuilding,
   removeRoom,
-  updateRoomOverallQuality,
+  updateRoomAverages,
 };
 
 export default Rooms;

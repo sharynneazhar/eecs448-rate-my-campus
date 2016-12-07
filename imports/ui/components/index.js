@@ -6,6 +6,7 @@ import SearchInput from './searchInput';
 import RatingsList from './ratingsList';
 import HelpNav from './helpNav';
 import Modal from './modal';
+import LoadAnimation from './loadAnimation';
 
 const components = {
   Alert,
@@ -16,6 +17,7 @@ const components = {
   RatingsList,
   HelpNav,
   Modal,
+  LoadAnimation,
 };
 
 export default components;
