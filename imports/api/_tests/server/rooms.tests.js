@@ -14,9 +14,8 @@ import Rooms, {
 } from '../../rooms';
 
 import Buildings, { addBuilding, } from '../../buildings';
-import { buildings } from '../../../resources/data/buildings.js';
-
-// import { rooms } from '../../../resources/data/rooms.js';
+import buildings from '../../../resources/data/buildings.js';
+import rooms from '../../../resources/data/rooms.js';
 
 if (Meteor.isServer) {
   describe('Rooms', () => {
@@ -33,22 +32,7 @@ if (Meteor.isServer) {
       it('can add a valid room', () => {
         const buildingId = Buildings.findOne()._id;
         const size = Rooms.find().count();
-        addRoom.call({
-          type: 'room',
-          name: 'testRoom',
-          facilityId: buildingId,
-          overallQuality: 4.0,
-          averageRatings: {
-            outlets: 4.0,
-            technology: 4.0,
-            seating: 4.0,
-            desks: 4.0,
-            lighting: 4.0,
-            visibility: 4.0,
-            audibility: 4.0,
-            cleanliness: 4.0
-          },
-        });
+        addRoom.call(rooms[0]);
         assert.equal(Rooms.find().count(), size + 1);
       });
 

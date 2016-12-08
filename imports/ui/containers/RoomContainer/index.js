@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import Buildings from '../../../api/buildings';
+import Buildings, { findBuildingByNumber, } from '../../../api/buildings';
 import Reviews from '../../../api/reviews';
 import Rooms from '../../../api/rooms';
 import Room from '../../pages/room';

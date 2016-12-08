@@ -5,6 +5,7 @@ import {
   updateBuildingAverages,
   findBuildingByName,
   findBuildingById,
+  findBuildingByNumber,
 } from './methods.js';
 
 const Buildings = new Mongo.Collection("buildings");
@@ -15,6 +16,7 @@ export {
   updateBuildingAverages,
   findBuildingByName,
   findBuildingById,
+  findBuildingByNumber,
 };
 
 export default Buildings;

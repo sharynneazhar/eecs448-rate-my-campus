@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { browserHistory, Link, } from 'react-router'
-import { findBuildingById, } from '../../../api/buildings';
+import { findBuildingByNumber, } from '../../../api/buildings';
 import ui from '../../components';
 
 class SearchResults extends Component {
@@ -12,7 +12,8 @@ class SearchResults extends Component {
     if (result.type === 'building') {
       return `building/${result._id}`;
     } else if (result.type === 'room') {
-      return `room/${result.facilityId}/${result._id}`;
+      const buildingId = findBuildingByNumber(result.buildingNumber)._id;
+      return `room/${buildingId}/${result._id}`;
     }
     return null;
   }
@@ -21,7 +22,7 @@ class SearchResults extends Component {
     if (result.type === 'building') {
       return result.address.full;
     } else if (result.type === 'room') {
-      return findBuildingById(result.facilityId).name;
+      return findBuildingByNumber(result.buildingNumber).name;
     }
     return null;
   }

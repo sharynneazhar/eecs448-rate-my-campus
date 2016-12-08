@@ -7,7 +7,7 @@ export const addRoom = new ValidatedMethod({
   validate: new SimpleSchema({
     type: { type: String },
     name: { type: String },
-    facilityId: { type: String },
+    buildingNumber: { type: Number },
     overallQuality: { type: Number, decimal: true },
     averageRatings: { type: Object, blackbox: true },
   }).validator(),
@@ -43,8 +43,8 @@ export const updateRoomAverages = new ValidatedMethod({
   }
 });
 
-export const findRoomsInBuilding = (facilityId) => {
-  return Rooms.find({ facilityId, }).fethc();
+export const findRoomsInBuilding = (buildingNumber) => {
+  return Rooms.find({ buildingNumber, }).fethc();
 }
 
 export const findRoomByName = (name) => {

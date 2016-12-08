@@ -7,6 +7,7 @@ export const addBuilding = new ValidatedMethod({
   validate: new SimpleSchema({
     type: { type: String },
     name: { type: String },
+    buildingNumber: { type: Number, },
     address: { type: Object },
     "address.full": { type: String },
     "address.street": { type: String },
@@ -59,4 +60,8 @@ export const findBuildingByName = (name) => {
 
 export const findBuildingById = (_id) => {
   return Buildings.findOne({ _id, });
+}
+
+export const findBuildingByNumber = (buildingNumber) => {
+  return Buildings.findOne({ buildingNumber, });
 }

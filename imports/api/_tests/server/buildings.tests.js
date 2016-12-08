@@ -10,9 +10,10 @@ import Buildings, {
   updateBuildingAverages,
   findBuildingByName,
   findBuildingById,
+  findBuildingByNumber,
 } from '../../buildings';
 
-import { buildings } from '../../../resources/data/buildings.js';
+import buildings from '../../../resources/data/buildings.js';
 
 if (Meteor.isServer) {
   describe('Buildings', () => {
@@ -65,6 +66,12 @@ if (Meteor.isServer) {
       it('should fail to find an invalid building name', () => {
         const building = findBuildingByName('someInvalidName');
         assert.equal(building.length, 0);
+      });
+
+      it('can find a valid building by number', () => {
+        const validNumber = Buildings.findOne().buildingNumber;
+        const building = findBuildingByNumber(validNumber);
+        assert.equal(building.buildingNumber, validNumber);
       });
     });
 
