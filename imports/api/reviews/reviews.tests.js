@@ -3,9 +3,9 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { assert } from 'meteor/practicalmeteor:chai';
-import Reviews, { addReview, removeReview, } from '../../reviews';
-import Buildings, { addBuilding, } from '../../buildings';
-import buildings from '../../../resources/data/buildings.js';
+import Reviews, { addReview, removeReview, } from '../reviews';
+import Buildings, { addBuilding, } from '../buildings';
+import buildings from '../../resources/data/buildings.js';
 
 if (Meteor.isServer) {
   describe('Reviews', () => {
@@ -36,7 +36,7 @@ if (Meteor.isServer) {
             accessibility: 3.0
           },
           comments: 'Test Review'
-        },);
+        });
         assert.equal(Reviews.find().count(), size + 1);
       });
 

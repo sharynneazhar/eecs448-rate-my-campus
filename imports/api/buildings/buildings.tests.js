@@ -11,9 +11,9 @@ import Buildings, {
   findBuildingByName,
   findBuildingById,
   findBuildingByNumber,
-} from '../../buildings';
+} from '../buildings';
 
-import buildings from '../../../resources/data/buildings.js';
+import buildings from '../../resources/data/buildings.js';
 
 if (Meteor.isServer) {
   describe('Buildings', () => {

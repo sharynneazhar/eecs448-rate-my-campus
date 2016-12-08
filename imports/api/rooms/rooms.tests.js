@@ -11,11 +11,11 @@ import Rooms, {
   findRoomById,
   findRoomByName,
   findRoomsInBuilding,
-} from '../../rooms';
+} from '../rooms';
 
-import Buildings, { addBuilding, } from '../../buildings';
-import buildings from '../../../resources/data/buildings.js';
-import rooms from '../../../resources/data/rooms.js';
+import Buildings, { addBuilding, } from '../buildings';
+import buildings from '../../resources/data/buildings.js';
+import rooms from '../../resources/data/rooms.js';
 
 if (Meteor.isServer) {
   describe('Rooms', () => {
