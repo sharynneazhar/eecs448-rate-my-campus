@@ -1,83 +1,13 @@
 import { Meteor } from 'meteor/meteor';
-import Buildings, { addBuilding, } from '../../api/buildings';
+import Buildings, { addBuilding, findBuildingByName, } from '../../api/buildings';
 import Rooms, { addRoom, } from '../../api/rooms';
 import Reviews, { addReview } from '../../api/reviews';
+
+import { buildings } from '../../resources/data/buildings.js';
 
 // if the database is empty on server start, create some sample data.
 Meteor.startup(() => {
   if (Buildings.find().count() === 0) {
-    const buildings = [
-      {
-        type: 'building',
-        name: 'Learned Engineering Expansion Phase 2 (LEEP2)',
-        description: 'An extension of the Measurement, Materials & Sustainable Environment Center at the School of Engineering, LEEP2 was dedicated Oct. 30, 2015. It has three stories in 110,000 square feet and extends west and south to the area formerly occupied by Burt Hall.',
-        address: {
-          full: '1536 W. 15th St., Lawrence, KS 66045',
-          street: '1536 W. 15th St.',
-          city: 'Lawrence',
-          state: 'KS',
-          zip: '66045',
-        },
-        overallQuality: 4.0,
-        averageRatings: {
-          internet: 4.0,
-          studyAreas: 4.0,
-          parking: 4.0,
-          dining: 4.0,
-          restrooms: 4.0,
-          trashMaintenance: 4.0,
-          vendingMachines: 4.0,
-          accessibility: 4.0
-        },
-      },
-      {
-        type: 'building',
-        name: 'Learned Hall',
-        description: 'Civil engineering was among the earliest courses taught at KU; electrical engineering was added in 1887, and in 1891 the School of Engineering was founded. Its first dean was Frank O. Marvin, son of third chancellor James Marvin. Departments of chemical, mechanical, mining and architectural engineering were added during his tenure, and in 1927 the school was renamed to Engineering and Architecture. In 1909, Marvin Hall was completed to house the School of Engineering.',
-        address: {
-          full: '1530 W. 15th St., Lawrence, KS 66045',
-          street: '1530 W. 15th St.',
-          city: 'Lawrence',
-          state: 'KS',
-          zip: '66045',
-        },
-        overallQuality: 4.0,
-        averageRatings: {
-          internet: 4.0,
-          studyAreas: 4.0,
-          parking: 4.0,
-          dining: 4.0,
-          restrooms: 4.0,
-          trashMaintenance: 4.0,
-          vendingMachines: 4.0,
-          accessibility: 4.0
-        },
-      },
-      {
-        type: 'building',
-        name: 'Malott Hall',
-        description: 'Malott houses the departments of chemistry and of physics and astronomy and its observatory; the departments of medicinal chemistry and pharmacology and toxicology in the School of Pharmacy; the Molecular Structures Group of laboratories in mass spectrometry, nuclear magnetic resonance, protein structures and other specialties; administrative offices; faculty and staff offices; classrooms; specialty laboratories and research facilities; the Animal Care Unit; and support and supply services. A new School of Pharmacy building on west campus was completed in August 2010.',
-        address: {
-          full: '1251 Wescoe Hall Drive Lawrence, KS 66045',
-          street: '1251 Wescoe Hall Drive',
-          city: 'Lawrence',
-          state: 'KS',
-          zip: '66045',
-        },
-        overallQuality: 4.0,
-        averageRatings: {
-          internet: 4.0,
-          studyAreas: 4.0,
-          parking: 4.0,
-          dining: 4.0,
-          restrooms: 4.0,
-          trashMaintenance: 4.0,
-          vendingMachines: 4.0,
-          accessibility: 4.0
-        },
-      },
-    ];
-
     buildings.forEach((building) => {
       addBuilding.call(building, (error) => {
         if (error) {
@@ -87,14 +17,13 @@ Meteor.startup(() => {
     });
   }
 
-  const buildingId = Buildings.findOne()._id;
+  const buildingId = findBuildingByName('LEEP')[0]._id;
   if (Rooms.find().count() === 0) {
     const rooms = [
       {
         type: 'room',
         name: 'G415',
         facilityId: buildingId,
-        description: 'A pretty dank classroom.',
         overallQuality: 4.0,
         averageRatings: {
           outlets: 4.0,
@@ -111,7 +40,54 @@ Meteor.startup(() => {
         type: 'room',
         name: '1420',
         facilityId: buildingId,
-        description: 'A pretty small classroom.',
+        overallQuality: 3.0,
+        averageRatings: {
+          outlets: 4.0,
+          technology: 4.0,
+          seating: 4.0,
+          desks: 4.0,
+          lighting: 4.0,
+          visibility: 4.0,
+          audibility: 4.0,
+          cleanliness: 4.0
+        },
+      },
+      {
+        type: 'room',
+        name: '1421',
+        facilityId: buildingId,
+        overallQuality: 3.0,
+        averageRatings: {
+          outlets: 4.0,
+          technology: 4.0,
+          seating: 4.0,
+          desks: 4.0,
+          lighting: 4.0,
+          visibility: 4.0,
+          audibility: 4.0,
+          cleanliness: 4.0
+        },
+      },
+      {
+        type: 'room',
+        name: '1422',
+        facilityId: buildingId,
+        overallQuality: 3.0,
+        averageRatings: {
+          outlets: 4.0,
+          technology: 4.0,
+          seating: 4.0,
+          desks: 4.0,
+          lighting: 4.0,
+          visibility: 4.0,
+          audibility: 4.0,
+          cleanliness: 4.0
+        },
+      },
+      {
+        type: 'room',
+        name: '1424',
+        facilityId: buildingId,
         overallQuality: 3.0,
         averageRatings: {
           outlets: 4.0,

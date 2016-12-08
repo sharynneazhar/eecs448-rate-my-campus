@@ -8,7 +8,6 @@ export const addRoom = new ValidatedMethod({
     type: { type: String },
     name: { type: String },
     facilityId: { type: String },
-    description: { type: String },
     overallQuality: { type: Number, decimal: true },
     averageRatings: { type: Object, blackbox: true },
   }).validator(),
@@ -48,7 +47,7 @@ export const findRoomsInBuilding = (facilityId) => {
   return Rooms.find({ facilityId, }).fethc();
 }
 
-export const findRoomByNumber = (name) => {
+export const findRoomByName = (name) => {
   return Rooms.find({
     name: {
       $regex: name,

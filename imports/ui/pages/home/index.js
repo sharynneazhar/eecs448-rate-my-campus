@@ -5,7 +5,7 @@ import React, {
 import { Meteor } from 'meteor/meteor';
 import { browserHistory } from 'react-router'
 import Buildings, { findBuildingByName, } from '../../../api/buildings';
-import Rooms, { findRoomByNumber, } from '../../../api/rooms';
+import Rooms, { findRoomByName, } from '../../../api/rooms';
 import ui from '../../components';
 
 class Home extends Component {
@@ -50,7 +50,7 @@ class Home extends Component {
       return (
         <ui.Alert
           type="error"
-          text={`Please enter a ${this.props.route.type} name.`}
+          text={`Please enter a ${this.state.routeType} name.`}
         />
       );
     }
@@ -63,12 +63,12 @@ class Home extends Component {
         {this.renderError()}
         <div className="find-section">
           <div className="find-section-title">
-            Find a {this.props.route.type}
+            Find a {this.state.routeType}
           </div>
           <form className="searchForm" onSubmit={this.search}>
             <ui.SearchInput
               type="text"
-              placeholder={`${this.props.route.type} name`}
+              placeholder={`${this.state.routeType} name`}
               onChange={this.handleInput}
             />
             <ui.Button

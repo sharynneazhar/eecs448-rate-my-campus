@@ -57,7 +57,9 @@ class Building extends Component {
 
   renderReviews = () => {
     if (this.props.reviews.length === 0) {
-      return (<div>Be first to review this building.</div>);
+      return (
+        <div>Be first to review this building.</div>
+      );
     }
 
     const reviews = this.props.reviews.map((review, index) =>

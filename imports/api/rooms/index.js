@@ -4,7 +4,7 @@ import {
   removeRoom,
   updateRoomAverages,
   findRoomById,
-  findRoomByNumber,
+  findRoomByName,
   findRoomsInBuilding,
 } from './methods.js';
 
@@ -15,7 +15,7 @@ export {
   removeRoom,
   updateRoomAverages,
   findRoomById,
-  findRoomByNumber,
+  findRoomByName,
   findRoomsInBuilding,
 };
 

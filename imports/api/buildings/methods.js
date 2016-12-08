@@ -7,7 +7,6 @@ export const addBuilding = new ValidatedMethod({
   validate: new SimpleSchema({
     type: { type: String },
     name: { type: String },
-    description: { type: String },
     address: { type: Object },
     "address.full": { type: String },
     "address.street": { type: String },
