@@ -15,5 +15,5 @@ before_script:
   - meteor npm install
 
 script:
-  - meteor build $HOME/build.tgz
   - meteor test --once --driver-package practicalmeteor:mocha
+  - meteor build $HOME/build.tgz
