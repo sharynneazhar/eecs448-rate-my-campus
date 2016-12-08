@@ -1,0 +1,19 @@
+language: node_js
+
+node_js:
+  - "0.12"
+
+before_install:
+  - curl https://install.meteor.com | /bin/sh
+  - export PATH="$HOME/.meteor:$PATH"
+
+cache:
+  directories:
+    - node_modules
+
+before_script:
+  - meteor npm install
+
+script:
+  - meteor build $HOME/build.tgz
+  - meteor test --once --driver-package practicalmeteor:mocha
