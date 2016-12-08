@@ -24,5 +24,5 @@ fortawesome:fontawesome
 mdg:validated-method
 aldeed:simple-schema
 twbs:bootstrap
-practicalmeteor:mocha
 momentjs:moment
+practicalmeteor:mocha-console-runner
