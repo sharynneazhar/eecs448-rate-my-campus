@@ -8,11 +8,13 @@ export default class Header extends Component {
     return (
       <div className="navbar navbar-default">
         <div className="container-fluid">
-          <div className="navbar-header">
-            <div className="header-title">
-              <Link to="/" className="header-link">RATE MY CAMPUS</Link>
+          <Link to="/" className="header-link">
+            <div className="navbar-header">
+              <div className="header-title">
+              RATE MY CAMPUS
+              </div>
             </div>
-          </div>
+          </Link>
           <div className="navbar-text navbar-right header-help">
             <Link to="/help" className="header-help-link">HELP</Link>
           </div>

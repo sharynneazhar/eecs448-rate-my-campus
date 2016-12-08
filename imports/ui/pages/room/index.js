@@ -84,6 +84,7 @@ class Room extends Component {
       <ui.Modal
         type="Room"
         id="RReview"
+        facilityId={this.props.room._id}
       />
     )
   }

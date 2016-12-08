@@ -86,6 +86,7 @@ class Building extends Component {
       <ui.Modal
         type="Building"
         id="BReview"
+        facilityId={this.props.building._id}
       />
     )
   }

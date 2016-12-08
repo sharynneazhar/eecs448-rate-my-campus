@@ -4,23 +4,68 @@ import React, {
 } from 'react';
 import ui from '../../components';
 import BS from 'bootstrap';
+import { addReview, } from '../../../api/reviews';
 
 export default class Modal extends Component {
-  constructor(props) {
-    super(props);
+  addReview = (e) => {
+    e.preventDefault();
+
+    let review = null;
+    if (this.props.type.toLowerCase() === 'building') {
+      review = {
+        type: this.props.type.toLowerCase(),
+        facilityId: this.props.facilityId,
+        dateReviewed: new Date(),
+        ratings: {
+          internet: parseInt(e.target.internet.value),
+          studyAreas: parseInt(e.target.studyAreas.value),
+          parking: parseInt(e.target.parking.value),
+          dining: parseInt(e.target.dining.value),
+          restrooms: parseInt(e.target.restrooms.value),
+          trashMaintenance: parseInt(e.target.trashMaintenance.value),
+          vendingMachines: parseInt(e.target.vendingMachines.value),
+          accessibility: parseInt(e.target.accessibility.value)
+        },
+        comments: e.target.comments.value
+      };
+    } else if (this.props.type.toLowerCase() === 'room') {
+      review = {
+        type: this.props.type.toLowerCase(),
+        facilityId: this.props.facilityId,
+        dateReviewed: new Date(),
+        ratings: {
+          outlets: parseInt(e.target.outlets.value),
+          technology: parseInt(e.target.technology.value),
+          seating: parseInt(e.target.seating.value),
+          desks: parseInt(e.target.desks.value),
+          lighting: parseInt(e.target.lighting.value),
+          visibility: parseInt(e.target.visibility.value),
+          audibility: parseInt(e.target.audibility.value),
+          cleanliness: parseInt(e.target.cleanliness.value)
+        },
+        comments: e.target.comments.value
+      };
+    }
+
+    addReview.call(review, (error) => {
+      if (error) {
+        console.log("There was an error inserting mock review data: ", error);
+      }
+    });
+
   }
 
-  renderForm() {
-    if(this.props.type == "Building"){
+  renderForm = () => {
+    if (this.props.type === "Building") {
       return (
-        <form method="post">
+        <form method="post" onSubmit={this.addReview}>
           <div className="form-group">
             <label htmlFor="internet" className="control-label">Internet</label>
             <input type="text" name="internet" />
           </div>
           <div className="form-group">
             <label htmlFor="study-areas" className="control-label">Study Areas</label>
-            <input type="text" name="study-areas" />
+            <input type="text" name="studyAreas" />
           </div>
           <div className="form-group">
             <label htmlFor="parking" className="control-label">Parking</label>
@@ -36,15 +81,15 @@ export default class Modal extends Component {
           </div>
           <div className="form-group">
             <label htmlFor="trash" className="control-label">Trash Maintenance</label>
-            <input type="text" name="trash" />
+            <input type="text" name="trashMaintenance" />
           </div>
           <div className="form-group">
             <label htmlFor="vending" className="control-label">Vending Machines</label>
-            <input type="text" name="vending" />
+            <input type="text" name="vendingMachines" />
           </div>
           <div className="form-group">
             <label htmlFor="access" className="control-label">Accessibility</label>
-            <input type="text" name="access" />
+            <input type="text" name="accessibility" />
           </div>
           <div className="form-group form-inline">
             <label htmlFor="graduation" className="control-label">Graduation Date</label>
@@ -52,26 +97,25 @@ export default class Modal extends Component {
           </div>
           <div className="form-group form-inline">
             <label htmlFor="comments" className="control-label">Comments</label>
-            <textarea className="form-control" rows="5" id="comments"></textarea>
+            <textarea className="form-control" rows="5" name="comments"></textarea>
           </div>
           <ui.Button
             type="submit"
-            text="Review"
+            text="Add Review"
             style="btn-lavender btn btn-lg"
           />
         </form>
       );
-    }
-    else if(this.props.type == "Room"){
+    } else if (this.props.type === "Room") {
       return (
-        <form method="post">
+        <form method="post" onSubmit={this.addReview}>
           <div className="form-group">
             <label htmlFor="outlets" className="control-label">Outlets</label>
             <input type="text" name="outlets" />
           </div>
           <div className="form-group">
             <label htmlFor="tech" className="control-label">Technology</label>
-            <input type="text" name="tech" />
+            <input type="text" name="technology" />
           </div>
           <div className="form-group">
             <label htmlFor="seating" className="control-label">Seating</label>
@@ -95,7 +139,7 @@ export default class Modal extends Component {
           </div>
           <div className="form-group">
             <label htmlFor="clean" className="control-label">Cleanliness</label>
-            <input type="text" name="clean" />
+            <input type="text" name="cleanliness" />
           </div>
           <div className="form-group form-inline">
             <label htmlFor="graduation" className="control-label">Graduation Date</label>
@@ -103,11 +147,11 @@ export default class Modal extends Component {
           </div>
           <div className="form-group form-inline">
             <label htmlFor="comments" className="control-label">Comments</label>
-            <textarea className="form-control" rows="5" id="comments"></textarea>
+            <textarea className="form-control" rows="5" name="comments"></textarea>
           </div>
           <ui.Button
             type="submit"
-            text="Review"
+            text="Add Review"
             style="btn-lavender btn btn-lg"
           />
         </form>
