@@ -1,5 +1,7 @@
 # Rate My Campus
 
+[![Build Status](https://travis-ci.org/sharynneazhar/eecs448-rate-my-campus.svg?branch=master)](https://travis-ci.org/sharynneazhar/eecs448-rate-my-campus)
+
 EECS 448 - Project 03
 
 Rate My Campus is the best destination for college campus reviews and ratings
@@ -35,10 +37,6 @@ Atmosphere packages are packages written specifically for Meteor.
 - Install an Atmosphere package, run `meteor add <package name>`
 - See all the packages you have installed, run `meteor list`
 - Remove unwanted package, run `meteor remove <package name>`
-
-#### Running Tests
-Run `npm run test` and navigate to `http://localhost:3100` to view the test results. For more
-information on testing, click [here][15]
 
 ### Resources
 #### React & Meteor
