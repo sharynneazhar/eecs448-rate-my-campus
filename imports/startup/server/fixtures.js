@@ -47,7 +47,7 @@ Meteor.startup(() => {
           vendingMachines: 2.5,
           accessibility: 3.0
         },
-        comments: 'LEEP2 is a pretty awesome building. It is the most recent building and it is packed! with tech. However, the tech do fail sometimes and class time is wasted because of it.'
+        comments: 'Learned is getting pretty old nowadays and a tad creepy. The table a pretty nice in some rooms, but in others they are those 2-for-1 table and chair deal.'
       },
       {
         type: 'building',
@@ -63,7 +63,7 @@ Meteor.startup(() => {
           vendingMachines: 2.5,
           accessibility: 3.0
         },
-        comments: 'We need a better cafe in here with foooooood.'
+        comments: 'I really like how learned is attached to both LEEP and Eaton. It\'s a longer walk but no need to brace myself when WINTER IS COMING!'
       },
       {
         type: 'building',
@@ -79,7 +79,7 @@ Meteor.startup(() => {
           vendingMachines: 2.5,
           accessibility: 3.0
         },
-        comments: 'Hello, is it me you\'re looking foooooor.'
+        comments: 'In general, the building is pretty clean but the restrooms are creepy. It definitely shows its age.'
       },
       {
         type: 'building',
@@ -95,7 +95,7 @@ Meteor.startup(() => {
           vendingMachines: 2.5,
           accessibility: 3.0
         },
-        comments: 'Learned is a pretty awesome building. It is the most recent building and it is packed! with tech. However, the tech do fail sometimes and class time is wasted because of it.'
+        comments: 'LEEP is a pretty awesome building. It is the most recent building and it is packed! with tech. However, the tech do fail sometimes and class time is wasted because of it.'
       },
       {
         type: 'building',
@@ -111,23 +111,7 @@ Meteor.startup(() => {
           vendingMachines: 2.5,
           accessibility: 3.0
         },
-        comments: 'We need a better cafe in here with foooooood.'
-      },
-      {
-        type: 'building',
-        facilityId: leep,
-        dateReviewed: new Date(),
-        ratings: {
-          internet: 4.8,
-          studyAreas: 4.0,
-          parking: 2.5,
-          dining: 2.2,
-          restrooms: 4.6,
-          trashMaintenance: 3.2,
-          vendingMachines: 2.5,
-          accessibility: 3.0
-        },
-        comments: 'Hello, is it me you\'re looking foooooor.'
+        comments: 'LEEP has a really nice lounge area with big glass windows. After all, we engineers probably need that sunlight. Wins over Tanschutz for sure.'
       },
       {
         type: 'room',
@@ -143,7 +127,7 @@ Meteor.startup(() => {
           audibility: 2.5,
           cleanliness: 3.0
         },
-        comments: 'Hello, this is dope.'
+        comments: 'I really like the tech in here. Could use a bit of maintenance though.'
       },
       {
         type: 'room',
@@ -159,7 +143,7 @@ Meteor.startup(() => {
           audibility: 2.5,
           cleanliness: 3.0
         },
-        comments: 'Hello, this is dope.'
+        comments: 'It\'s kind of hard to see the professor sometimes with all the TVs in the way.'
       },
       {
         type: 'room',
@@ -175,7 +159,7 @@ Meteor.startup(() => {
           audibility: 2.5,
           cleanliness: 3.0
         },
-        comments: 'Hello, this is dope.'
+        comments: 'I love how this room (and basically all the rooms in this building) have all the cords for us to use!'
       },
     ];
 

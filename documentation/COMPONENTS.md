@@ -64,6 +64,31 @@ Adds a text to the button.
 ###### onClick
 Tells the button what to do when clicked.
 
+### Modal
+Modal that displays the Add Review form
+```
+<ui.Modal
+    type="Building"
+    id="buildingReview"
+    facilityId="12345"
+  />
+```
+
+#### Props
+###### id
+The id is used to show/hide the modal using the `.modal('show')` method.
+
+###### type
+The facility type. Can be one of the following:
+- building
+- room
+- school (comming soon)
+
+
+### LoadAnimation
+Generic loading animation display.
+
+
 ### SearchInput
 Generic search input component.
 

@@ -54,4 +54,46 @@
   font-weight: 600;
   font-size: 18px;
   background-color: $lightGrey;
+  margin-bottom: 30px;
+}
+
+.recent-rating-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  color: $slate;
+}
+
+.recent-rating-card {
+  height: 200px;
+  width: 30%;
+  background-color: $white;
+  margin: 10px;
+  padding: 15px;
+  overflow: hidden;
+  text-decoration: none;
+  color: $slate;
+  -webkit-box-shadow: 2px 2px 5px -1px rgba(158,156,158,0.59);
+  -moz-box-shadow: 2px 2px 5px -1px rgba(158,156,158,0.59);
+  box-shadow: 2px 2px 5px -1px rgba(158,156,158,0.59);
+}
+
+.recent-rating-card:hover {
+  border: 2px solid $lavender;
+  text-decoration: none;
+  color: $slate;
+}
+
+.recent-rating-card-name {
+  padding-top: 5px;
+  padding-bottom: 15px;
+  font-size: 14px;
+  font-family: $montserrat;
+  color: $slate;
+}
+
+.recent-rating-card-comment {
+  text-decoration: none;
+  color: $charcoal;
 }
