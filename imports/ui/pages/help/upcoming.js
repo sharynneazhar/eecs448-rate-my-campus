@@ -7,7 +7,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Link } from 'react-router';
 import ui from '../../components';
 
-class FAQ extends Component {
+class Upcoming extends Component {
 
   render() {
     return (
@@ -21,16 +21,13 @@ class FAQ extends Component {
               <ui.HelpNav />
             </div>
             <div className="help-section-content">
-              <h1>FAQ</h1>
+              <h1>Upcoming</h1>
               <br />
-              <h4><b>Q:</b> What is the answer to life, the unvierse and everything?</h4>
-              <p><b>A:</b> 42</p>
+              <h4>Administrative Login</h4>
+              <p>Campus adminstrations would have access to the database information for their particular campus information. Ability to add and remove buildings and classrooms.</p>
               <br />
-              <h4><b>Q:</b> Who ya gonna call?</h4>
-              <p><b>A:</b> Ghostbusters</p>
-              <br />
-              <h4><b>Q:</b> What is the answer to life, the unvierse and everything?</h4>
-              <p><b>A:</b> 42</p>
+              <h4>Recent Reviews</h4>
+              <p>Brief preview of the most recent reviews on the homepage. Would include building/classroom, overall rating and the first few lines of any commentary.</p>
             </div>
           </div>
         </div>
@@ -39,6 +36,6 @@ class FAQ extends Component {
   }
 }
 
-FAQ.propTypes = {};
+Upcoming.propTypes = {};
 
-export default FAQ;
+export default Upcoming;

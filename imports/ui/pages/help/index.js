@@ -33,18 +33,18 @@ class Help extends Component {
               </Link>
             </div>
             <div className="help-nav-item">
-              <Link to="/help">
-                <ui.Button
-                  style="btn-lavender btn btn-lg"
-                  text="????"
-                />
-              </Link>
-            </div>
-            <div className="help-nav-item">
               <Link to="/help/faq">
                 <ui.Button
                   style="btn-lavender btn btn-lg"
                   text="FAQ"
+                />
+              </Link>
+            </div>
+            <div className="help-nav-item">
+              <Link to="/help/upcoming">
+                <ui.Button
+                  style="btn-lavender btn btn-lg"
+                  text="Upcoming"
                 />
               </Link>
             </div>

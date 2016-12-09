@@ -58,7 +58,6 @@ class Ratings extends Component {
                   <p>Can you hear your professor? What about videos? Can you hear classmates across the room?</p>
                 <h4 id="cleanliness">Cleanliness</h4>
                   <p>Think about the overall cleanliness of the room. Are whiteboards/blackboards clean or smeared with marker/chalk remnants? Is the floor clear or littered with scraps? Trash cans overflowing or always available?</p>
-              <br />
             </div>
           </div>
         </div>

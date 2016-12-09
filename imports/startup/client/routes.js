@@ -9,6 +9,7 @@ import Contact from '../../ui/pages/help/contact.js';
 import Faq from '../../ui/pages/help/faq.js';
 import HowTo from '../../ui/pages/help/how-to.js';
 import Ratings from '../../ui/pages/help/ratings.js';
+import Upcoming from '../../ui/pages/help/upcoming.js';
 
 import HomeContainer from '../../ui/containers/HomeContainer';
 import BuildingContainer from '../../ui/containers/BuildingContainer';
@@ -29,6 +30,7 @@ export const renderRoutes = () => (
       <Route name="contact" path="/help/contact" component={Contact} />
       <Route name="faq" path="/help/faq" component={Faq} />
       <Route name="ratings" path="/help/ratings" component={Ratings} />
+      <Route name="upcoming" path="/help/upcoming" component={Upcoming} />
     </Route>
   </Router>
 );

@@ -18,13 +18,13 @@ export default class HelpNav extends Component {
           </Link>
         </li>
         <li>
-          <Link to="/help" className="help-sidebar-link">
-            ????
+          <Link to="/help/faq" className="help-sidebar-link">
+            FAQ
           </Link>
         </li>
         <li>
-          <Link to="/help/faq" className="help-sidebar-link">
-            FAQ
+          <Link to="/help/upcoming" className="help-sidebar-link">
+            Upcoming
           </Link>
         </li>
         <li>
