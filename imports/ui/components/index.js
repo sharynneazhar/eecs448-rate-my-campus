@@ -7,7 +7,6 @@ import RatingsList from './ratingsList';
 import HelpNav from './helpNav';
 import Modal from './modal';
 import LoadAnimation from './loadAnimation';
-import Bar from './ratingBar';
 
 const components = {
   Alert,
@@ -19,7 +18,6 @@ const components = {
   HelpNav,
   Modal,
   LoadAnimation,
-  Bar,
 };
 
 export default components;

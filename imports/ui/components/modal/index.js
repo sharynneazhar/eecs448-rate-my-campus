@@ -60,36 +60,44 @@ export default class Modal extends Component {
       return (
         <form method="post" onSubmit={this.addReview}>
           <div className="form-group">
-            <ui.Bar quality="Internet" color="green" />
+            <label htmlFor="internet" className="control-label">Internet</label>
+            <input type="text" name="internet" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Study Areas" color="yellow" />
+            <label htmlFor="study-areas" className="control-label">Study Areas</label>
+            <input type="text" name="studyAreas" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Parking" color="orange" />
+            <label htmlFor="parking" className="control-label">Parking</label>
+            <input type="text" name="parking" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Dining" color="red" />
+            <label htmlFor="dining" className="control-label">Dining</label>
+            <input type="text" name="dining" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Restrooms" color="green" />
+            <label htmlFor="restrooms" className="control-label">Restrooms</label>
+            <input type="text" name="restrooms" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Trash Maintenance" color="yellow" />
+            <label htmlFor="trash" className="control-label">Trash Maintenance</label>
+            <input type="text" name="trashMaintenance" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Vending Machines" color="orange" />
+            <label htmlFor="vending" className="control-label">Vending Machines</label>
+            <input type="text" name="vendingMachines" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Accessibility" color="red" />
+            <label htmlFor="access" className="control-label">Accessibility</label>
+            <input type="text" name="accessibility" />
           </div>
           <div className="form-group form-inline">
-            <label className="control-label">Graduation Date</label>
-            <textarea className="form-control" rows="1" cols="42" name="graduation" />
+            <label htmlFor="graduation" className="control-label">Graduation Date</label>
+            <input type="text" className="form-control" name="graduation" />
           </div>
           <div className="form-group form-inline">
-            <label className="control-label">Comments</label>
-            <textarea className="form-control" rows="5" cols="42" name="comments" />
+            <label htmlFor="comments" className="control-label">Comments</label>
+            <textarea className="form-control" rows="5" name="comments"></textarea>
           </div>
           <ui.Button
             type="submit"
@@ -102,36 +110,44 @@ export default class Modal extends Component {
       return (
         <form method="post" onSubmit={this.addReview}>
           <div className="form-group">
-            <ui.Bar quality="Outlets" color="green" />
+            <label htmlFor="outlets" className="control-label">Outlets</label>
+            <input type="text" name="outlets" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Technology" color="yellow" />
+            <label htmlFor="tech" className="control-label">Technology</label>
+            <input type="text" name="technology" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Seating" color="orange" />
+            <label htmlFor="seating" className="control-label">Seating</label>
+            <input type="text" name="seating" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Desks" color="red" />
+            <label htmlFor="desks" className="control-label">Desks</label>
+            <input type="text" name="desks" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Lighting" color="green" />
+            <label htmlFor="lighting" className="control-label">Lighting</label>
+            <input type="text" name="lighting" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Visibility" color="yellow" />
+            <label htmlFor="visibility" className="control-label">Visibility</label>
+            <input type="text" name="visibility" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Audibility" color="orange" />
+            <label htmlFor="audibility" className="control-label">Audibility</label>
+            <input type="text" name="audibility" />
           </div>
           <div className="form-group">
-            <ui.Bar quality="Cleanliness" color="red" />
+            <label htmlFor="clean" className="control-label">Cleanliness</label>
+            <input type="text" name="cleanliness" />
           </div>
           <div className="form-group form-inline">
-            <label className="control-label">Graduation Date</label>
-            <textarea className="form-control" rows="1" cols="42" name="graduation" />
+            <label htmlFor="graduation" className="control-label">Graduation Date</label>
+            <input type="text" className="form-control" name="graduation" />
           </div>
           <div className="form-group form-inline">
-            <label className="control-label">Comments</label>
-            <textarea className="form-control" rows="5" cols="42" name="comments" />
+            <label htmlFor="comments" className="control-label">Comments</label>
+            <textarea className="form-control" rows="5" name="comments"></textarea>
           </div>
           <ui.Button
             type="submit"
@@ -166,5 +182,4 @@ export default class Modal extends Component {
 Modal.propTypes = {
   id: PropTypes.string.isRequired,
   type: PropTypes.string,
-  facilityId: PropTypes.string,
 };
