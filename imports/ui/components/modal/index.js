@@ -53,6 +53,7 @@ export default class Modal extends Component {
       }
     });
 
+    $(`#${this.props.id}`).modal("hide");
   }
 
   renderForm = () => {
