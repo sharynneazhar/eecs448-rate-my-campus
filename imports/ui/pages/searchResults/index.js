@@ -29,9 +29,9 @@ class SearchResults extends Component {
 
   renderResults = () => {
     const results = this.props.results.map((result, idx) =>
-      <Link key={idx} to={this.getUrl(result)} className="">
-        <div className="">{result.name}</div>
-        <div className="">{this.getDetail(result)}</div>
+      <Link key={idx} to={this.getUrl(result)} className="result">
+        <div className="result-title">{result.name}</div>
+        <div className="result-address">{this.getDetail(result)}</div>
       </Link>
     );
     return this.props.loading ? <ui.LoadAnimation /> : results;
