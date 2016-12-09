@@ -38,6 +38,11 @@ Atmosphere packages are packages written specifically for Meteor.
 - See all the packages you have installed, run `meteor list`
 - Remove unwanted package, run `meteor remove <package name>`
 
+#### Running Tests
+Run `meteor test --once --driver-package=practicalmeteor:mocha` and navigate
+to your `localhost` to view the test results. For more
+information on testing, click [here][15]
+
 ### Resources
 #### React & Meteor
 - [React Documentation][4] - React is a JavaScript library for creating user

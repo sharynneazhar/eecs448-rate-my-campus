@@ -1,60 +1,35 @@
-.search-results-list {
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 40px;
-  background: url('/../../../illustrations/map.png') no-repeat center center;
+.search-results {
+  height: 100vh;
+  margin-top: -20px;
+  padding: 50px;
+  background: url('/../../../illustrations/map.png') no-repeat 10% 20%;
 }
 
-.theResults {
+.search-results-inner {
+  height: 100%;
+  padding: 40px;
+  background: $white;
+  border: 2px solid $border;
   font-weight: 600;
   font-size: 18px;
-  border-radius: 15px;
-  border: 2px solid $grey;
+}
+
+.search-results-heading {
+  margin: 10px 0 40px 0;
+  padding-bottom: 15px;
+  border-bottom: 2px solid $border;
+}
+
+.search-results-list {
+  margin: 20px 0;
+  padding: 0;
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.list-group-item {
   padding: 20px;
-  background: $white;
-}
-
-.results-heading {
-  border-bottom: 2px solid $grey;
-  padding: 20px;
-  display: flex;
-}
-
-.search-results-title {
-  padding: 0px;
-}
-
-.search-results-found {
-  text-align: right;
-  font-weight: normal;
-  padding-left: 75%;
-}
-
-.result {
-  width: 100%;
-  height: 80px;
-  display: block;
-  border: 1px solid $border;
-  margin-top: 7px;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-left: 5px;
-  color: $charcoal;
-  text-decoration: none;
-}
-
-.result:hover,
-.result:active,
-.result:focus {
-  text-decoration: none;
-  font-weight: bold;
-
-}
-
-.result-title {
-  font-size: 16px;
-}
-
-.result-address {
-  font-size: 13px;
 }

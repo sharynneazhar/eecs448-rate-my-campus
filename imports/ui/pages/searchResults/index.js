@@ -29,9 +29,9 @@ class SearchResults extends Component {
 
   renderResults = () => {
     const results = this.props.results.map((result, idx) =>
-      <Link key={idx} to={this.getUrl(result)} className="result">
-        <div className="result-title">{result.name}</div>
-        <div className="result-address">{this.getDetail(result)}</div>
+      <Link key={idx} to={this.getUrl(result)} className="list-group-item">
+        <div className="list-group-item-heading">{result.name}</div>
+        <div className="list-group-item-text">{this.getDetail(result)}</div>
       </Link>
     );
     return this.props.loading ? <ui.LoadAnimation /> : results;
@@ -39,17 +39,12 @@ class SearchResults extends Component {
 
   render() {
     return (
-      <div className="search-results-list">
-        <div className="theResults">
-          <div className="results-heading">
-            <div className="search-results-title">
-              Search Results
-            </div>
-            <div className="search-results-found">
-              Found {this.props.results.length} results
-            </div>
+      <div className="search-results">
+        <div className="container search-results-inner">
+          <div className="row search-results-heading">
+            {this.props.results.length} facilities found for your search
           </div>
-          <div className="actual-results">
+          <div className="search-results-list list-group">
             {this.renderResults()}
           </div>
         </div>
