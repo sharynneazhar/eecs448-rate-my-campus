@@ -92,10 +92,6 @@ export default class Modal extends Component {
             <input type="text" name="accessibility" />
           </div>
           <div className="form-group form-inline">
-            <label htmlFor="graduation" className="control-label">Graduation Date</label>
-            <input type="text" className="form-control" name="graduation" />
-          </div>
-          <div className="form-group form-inline">
             <label htmlFor="comments" className="control-label">Comments</label>
             <textarea className="form-control" rows="5" name="comments"></textarea>
           </div>
@@ -140,10 +136,6 @@ export default class Modal extends Component {
           <div className="form-group">
             <label htmlFor="clean" className="control-label">Cleanliness</label>
             <input type="text" name="cleanliness" />
-          </div>
-          <div className="form-group form-inline">
-            <label htmlFor="graduation" className="control-label">Graduation Date</label>
-            <input type="text" className="form-control" name="graduation" />
           </div>
           <div className="form-group form-inline">
             <label htmlFor="comments" className="control-label">Comments</label>
