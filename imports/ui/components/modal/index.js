@@ -53,6 +53,7 @@ export default class Modal extends Component {
       }
     });
 
+    $(`#${this.props.id}`).modal("hide");
   }
 
   renderForm = () => {
@@ -82,10 +83,6 @@ export default class Modal extends Component {
           </div>
           <div className="form-group">
             <ui.Bar quality="Accessibility" color="red" />
-          </div>
-          <div className="form-group form-inline">
-            <label className="control-label">Graduation Date</label>
-            <textarea className="form-control" rows="1" cols="42" name="graduation" />
           </div>
           <div className="form-group form-inline">
             <label className="control-label">Comments</label>
@@ -124,10 +121,6 @@ export default class Modal extends Component {
           </div>
           <div className="form-group">
             <ui.Bar quality="Cleanliness" color="red" />
-          </div>
-          <div className="form-group form-inline">
-            <label className="control-label">Graduation Date</label>
-            <textarea className="form-control" rows="1" cols="42" name="graduation" />
           </div>
           <div className="form-group form-inline">
             <label className="control-label">Comments</label>
