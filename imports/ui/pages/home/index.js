@@ -47,9 +47,11 @@ class Home extends Component {
 
   getUrl = (review) => {
     if (review.type === 'building') {
-      return `building/${review._id}`;
+      return `building/${review.facilityId}`;
     } else if (review.type === 'room') {
-      return `room/${review.facilityId}/${review._id}`;
+      const room = findRoomById(review.facilityId);
+      const building = findBuildingByNumber(room.buildingNumber);
+      return `room/${building._id}/${review.facilityId}`;
     }
     return null;
   }
