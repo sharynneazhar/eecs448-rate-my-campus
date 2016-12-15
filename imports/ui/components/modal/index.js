@@ -93,8 +93,8 @@ export default class Modal extends Component {
             <input type="text" name="accessibility" />
           </div>
           <div className="form-group form-inline">
-            <label htmlFor="comments" className="control-label">Comments</label>
-            <textarea className="form-control" rows="5" name="comments"></textarea>
+            <label className="control-label">Comments</label>
+            <textarea className="form-control" rows="5" cols="42" name="comments" />
           </div>
           <ui.Button
             type="submit"
@@ -139,8 +139,8 @@ export default class Modal extends Component {
             <input type="text" name="cleanliness" />
           </div>
           <div className="form-group form-inline">
-            <label htmlFor="comments" className="control-label">Comments</label>
-            <textarea className="form-control" rows="5" name="comments"></textarea>
+            <label className="control-label">Comments</label>
+            <textarea className="form-control" rows="5" cols="42" name="comments" />
           </div>
           <ui.Button
             type="submit"
