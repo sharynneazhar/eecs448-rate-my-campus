@@ -1,0 +1,87 @@
+.rate {
+  width: 100%;
+  height: 42px;
+  margin: -9px 0;
+}
+
+.quality {
+  width: 150px;
+  height: 34px;
+  float: right;
+  font-weight: bold;
+  color: $charcoal;
+  padding: 14px 0;
+}
+
+.green {
+  width: 70px;
+  float: right;
+  font-weight: bold;
+  font-size: 30px;
+  color: $green;
+  text-align: center;
+}
+
+.yellow {
+  width: 70px;
+  float: right;
+  font-weight: bold;
+  font-size: 30px;
+  color: $yellow;
+  text-align: center;
+}
+
+.orange {
+  width: 70px;
+  float: right;
+  font-weight: bold;
+  font-size: 30px;
+  color: $orange;
+  text-align: center;
+}
+
+.red {
+  width: 70px;
+  float: right;
+  font-weight: bold;
+  font-size: 30px;
+  color: $red;
+  text-align: center;
+}
+
+.br-wrapper {
+  width: 350px;
+  height: 34px;
+  float: right;
+  padding: 14px 0;
+}
+
+.br-widget {
+  height: 20px;
+  white-space: nowrap;
+}
+
+.bar {
+  border: 1px solid $border;
+}
+
+.selected {
+  background-color: $border;
+}
+
+.br-widget a {
+  display: block;
+  width: 70px;
+  height: 15px;
+  float: left;
+  background-color: $white;
+  margin-right: -1px ;
+}
+
+.br-widget a:hover {
+  background-color: $border;
+}
+
+#rating {
+  display: none;
+}
